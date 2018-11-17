@@ -2,7 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import pt from "prop-types"
 import StoryBlock from "../../components/StoryBlock"
-import { action } from "../../utils"
+import { fetchStories } from "../../sagas/stories"
+import { feedSpatch } from "../../sagas/utils"
 
 class Home extends Component {
   static propTypes = {
@@ -26,14 +27,12 @@ class Home extends Component {
   }
 }
 
-const storeToProps = ({ stories: { stories } }) => ({
+const storeToProps = ({ stories }) => ({
   stories
 })
 
-const actionsToProps = dispatch => ({
-  fetchStories: () => {
-    dispatch(action("EFX_FETCH_STORIES_R"))
-  }
+const actionsToProps = feedSpatch({
+  fetchStories
 })
 
 export default connect(

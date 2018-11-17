@@ -9,7 +9,7 @@ import reducers from "./reducers"
 import sagas from "./sagas"
 
 import "./index.css"
-import App from "./App"
+import App from "./pages/Routes"
 import * as serviceWorker from "./serviceWorker"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
