@@ -622,6 +622,12 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+"@babel/runtime@^7.0.0":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.5.tgz#4170907641cf1f61508f563ece3725150cc6fe39"
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/runtime@^7.1.2":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.2.tgz#81c89935f4647706fc54541145e6b4ecfef4b8e3"
@@ -671,6 +677,26 @@
 "@emotion/memoize@^0.6.6":
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.6.6.tgz#004b98298d04c7ca3b4f50ca2035d4f60d2eed1b"
+
+"@redux-saga/deferred@^1.0.0-beta.3":
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@redux-saga/deferred/-/deferred-1.0.0-beta.3.tgz#9d2340b2116371dcabebc10c5523c582a609590f"
+
+"@redux-saga/delay-p@^1.0.0-beta.3":
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@redux-saga/delay-p/-/delay-p-1.0.0-beta.3.tgz#8e3aaef6022cad25588c384878b4e84507472fd0"
+  dependencies:
+    "@redux-saga/symbols" "^1.0.0-beta.3"
+
+"@redux-saga/is@^1.0.0-beta.3":
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@redux-saga/is/-/is-1.0.0-beta.3.tgz#64b2c73c6f25e693228dae97db266c23c4fc42ee"
+  dependencies:
+    "@redux-saga/symbols" "^1.0.0-beta.3"
+
+"@redux-saga/symbols@^1.0.0-beta.3":
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@redux-saga/symbols/-/symbols-1.0.0-beta.3.tgz#94392a2f2320ff9f813f6efb1dff499b677e3ac8"
 
 "@svgr/core@^2.4.1":
   version "2.4.1"
@@ -2390,6 +2416,10 @@ deep-extend@^0.6.0:
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
+
+deepmerge@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
 
 default-gateway@^2.6.0:
   version "2.7.2"
@@ -6868,11 +6898,18 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
-redux-saga@^0.16.2:
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.16.2.tgz#993662e86bc945d8509ac2b8daba3a8c615cc971"
+redux-saga@^1.0.0-beta.3:
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.0.0-beta.3.tgz#10f44fa4f00c6e7a53417da91d67928d3e79c157"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    "@redux-saga/deferred" "^1.0.0-beta.3"
+    "@redux-saga/delay-p" "^1.0.0-beta.3"
+    "@redux-saga/is" "^1.0.0-beta.3"
+    "@redux-saga/symbols" "^1.0.0-beta.3"
+    redux ">=0.10 <5"
 
-redux@^4.0.1:
+"redux@>=0.10 <5", redux@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
   dependencies:
