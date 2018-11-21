@@ -1,4 +1,6 @@
-export function action(effect, vars) {
+export {connect} from "react-redux"
+
+export function spaction(effect, vars) {
 	return { type: effect, ...vars }
 }
 
@@ -11,16 +13,22 @@ export function errorStore(type, message) {
 }
 
 export function feedSpatch(funcs) {
+	let newFuncs = {}
 	return dispatch => {
 		Object.keys(funcs).forEach(key => {
-			funcs[key] = funcs[key](dispatch)
+			newFuncs[key] = funcs[key](dispatch)
 		})
-		console.log("funcs >>>>>> ", funcs)
-		return funcs
+		return newFuncs
 	}
 }
 
-export function spatch(act, argNames) {
+export function actionEnum(name, list) {
+	let actionsEnum = {}
+	list.forEach((subAct) => actionsEnum[subAct] = name+"."+subAct)
+	return actionsEnum
+}
+
+export function spatch(action, argNames) {
 	return dispatch => {
 		return (...args) => {
 			if (argNames) {
@@ -28,10 +36,9 @@ export function spatch(act, argNames) {
 				for (let i = 0; i < argNames.length; i++) {
 					values[argNames[i]] = args[i]
 				}
-				console.log("values >>>>>> ", values)
-				return dispatch(action(act, values))
+				return dispatch(spaction(action, values))
 			} else {
-				return dispatch(action(act))
+				return dispatch(spaction(action))
 			}
 		}
 	}

@@ -9,17 +9,19 @@ class Auth {
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
       redirectUri: process.env.REACT_APP_AUTH0_REDIRECT_URI,
       responseType: "token id_token",
-      scope: "openid profile"
+      scope: "email openid profile"
     })
 
-    this.getProfile = this.getProfile.bind(this)
+    this.getUser = this.getUser.bind(this)
     this.handleAuthentication = this.handleAuthentication.bind(this)
     this.isAuthenticated = this.isAuthenticated.bind(this)
     this.signIn = this.signIn.bind(this)
     this.signOut = this.signOut.bind(this)
   }
 
-  getProfile() {
+  nullUser = { null: true }
+
+  getUser() {
     return this.profile
   }
 

@@ -1,26 +1,36 @@
-import { all, put, takeLatest } from "redux-saga/effects"
-import auth0Client from "../auth"
-import { setStore, errorStore, spatch } from "./utils"
+import { all, put, select, takeLeading, take } from "redux-saga/effects"
+import auth0Client from "auth"
+import { spaction, setStore, spatch, actionEnum } from "./utils"
 
-const GET_AUTH = {
-  silent: "GET_AUTH_SILENT",
-  success: "GET_AUTH_SUCCESS",
-  failure: "GET_AUTH_FAILURE"
+const GET_AUTH = actionEnum("GET_AUTH", ["silent", "success", "failure"])
+
+export function* expectUser(action) {
+  yield put(spaction(GET_AUTH.silent))
+  let user;
+  while (!user) {
+    yield take('*')
+    user = select(({ user }) => user)
+  }
 }
 
 export const silentAuth = spatch(GET_AUTH.silent)
 
-function* silentAuthSaga(action) {
+export function* silentAuthSaga(action) {
   try {
     yield auth0Client.silentAuth()
-    yield put(setStore(GET_AUTH.success, {user: auth0Client.getProfile()}))
+    yield put(setStore(GET_AUTH.success, { user: auth0Client.getUser() }))
   } catch (e) {
-    yield put(errorStore(GET_AUTH.failure, e.message))
+    yield put(
+      setStore(GET_AUTH.failure, {
+        error: e.message,
+        user: auth0Client.nullUser
+      })
+    )
   }
 }
 
 function* AuthSagas() {
-  yield all([yield takeLatest(GET_AUTH.silent, silentAuthSaga)])
+  yield all([yield takeLeading(GET_AUTH.silent, silentAuthSaga)])
 }
 
 export default AuthSagas

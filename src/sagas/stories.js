@@ -1,17 +1,19 @@
-import { all, put, takeLatest } from "redux-saga/effects"
-import { authGet } from "../auth"
-import { setStore, errorStore, spatch } from "./utils"
+import { all, put, takeLeading, call } from "redux-saga/effects"
+import { authGet } from "auth"
+import { expectUser } from "./auth"
+import { setStore, errorStore, spatch, actionEnum } from "./utils"
 
-const FETCH_STORIES = {
-  request: "FETCH_STORIES_REQUEST",
-  success: "FETCH_STORIES_SUCCESS",
-  failure: "FETCH_STORIES_FAILURE"
-}
+const FETCH_STORIES = actionEnum("FETCH_STORIES", [
+  "request",
+  "success",
+  "failure"
+])
 
 export const fetchStories = spatch(FETCH_STORIES.request)
 
 function* fetchStoriesSaga(action) {
   try {
+    yield call(expectUser)
     const stories = yield authGet(`${process.env.REACT_APP_API_URL}/stories`)
     yield put(setStore(FETCH_STORIES.success, { stories: stories.data }))
   } catch (e) {
@@ -20,17 +22,22 @@ function* fetchStoriesSaga(action) {
 }
 // ----------------------------------------------------
 // ----------------------------------------------------
-export const FETCH_ARTICLES = {
-  request: "FETCH_ARTICLES_REQUEST",
-  success: "FETCH_ARTICLES_SUCCESS",
-  failure: "FETCH_ARTICLES_FAILURE"
-}
+const FETCH_ARTICLES = actionEnum("FETCH_ARTICLES", [
+  "request",
+  "success",
+  "failure"
+])
+export const FETCH_DESK_ARTICLES = actionEnum("FETCH_DESK_ARTICLES", [
+  "request",
+  "success",
+  "failure"
+])
 
-export const fetchArticles = spatch(FETCH_ARTICLES.request, ["id"])
+export const fetchStoryArticles = spatch(FETCH_ARTICLES.request, ["id"])
 
-function* fetchArticlesSaga({ id }) {
+function* fetchStoryArticlesSaga({ id }) {
   try {
-    console.log("id >>>> ",id)
+    yield call(expectUser)
     const articles = yield authGet(
       `${process.env.REACT_APP_API_URL}/stories/${id}`
     )
@@ -40,12 +47,27 @@ function* fetchArticlesSaga({ id }) {
   }
 }
 
+export const fetchDeskArticles = spatch(FETCH_DESK_ARTICLES.request, ["id"])
+
+function* fetchDeskArticlesSaga({ id }) {
+  try {
+    yield call(expectUser)
+    const articles = yield authGet(`${process.env.REACT_APP_API_URL}/desk`)
+    yield put(
+      setStore(FETCH_DESK_ARTICLES.success, { desk: { articles: articles.data } })
+    )
+  } catch (e) {
+    yield put(errorStore(FETCH_DESK_ARTICLES.failure, e.message))
+  }
+}
+
 // ----------------------------------------------------
 // ----------------------------------------------------
 function* StorySagas() {
   yield all([
-    yield takeLatest(FETCH_STORIES.request, fetchStoriesSaga),
-    yield takeLatest(FETCH_ARTICLES.request, fetchArticlesSaga)
+    yield takeLeading(FETCH_STORIES.request, fetchStoriesSaga),
+    yield takeLeading(FETCH_ARTICLES.request, fetchStoryArticlesSaga),
+    yield takeLeading(FETCH_DESK_ARTICLES.request, fetchDeskArticlesSaga)
   ])
 }
 

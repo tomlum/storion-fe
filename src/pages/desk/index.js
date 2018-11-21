@@ -1,18 +1,17 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import pt from "prop-types"
 import ArticleBlock from "../../components/ArticleBlock"
-import { fetchStoryArticles } from "../../sagas/stories"
-import { feedSpatch } from "../../sagas/utils"
+import { fetchDeskArticles } from "../../sagas/stories"
+import { feedSpatch, connect } from "../../sagas/utils"
 
-class Story extends Component {
+class Desk extends Component {
   static propTypes = {
     articles: pt.array,
     match: pt.object
   }
 
   componentDidMount() {
-    this.props.fetchStoryArticles(this.props.match.params.id)
+    this.props.fetchDeskArticles(this.props.match.params.id)
   }
 
   render() {
@@ -27,13 +26,13 @@ class Story extends Component {
   }
 }
 
-const storeToProps = ({ articles }) => ({
+const storeToProps = ({ desk: { articles } }) => ({
   articles
 })
 
-const actionsToProps = feedSpatch({fetchStoryArticles})
+const actionsToProps = feedSpatch({fetchDeskArticles})
 
 export default connect(
   storeToProps,
   actionsToProps
-)(Story)
+)(Desk)

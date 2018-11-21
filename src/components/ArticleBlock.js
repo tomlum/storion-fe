@@ -5,6 +5,7 @@ import pt from "prop-types"
 const ArticleBody = styled.div`
 	border: solid 1px cyan;
 	padding: 5px;
+	color: white;
 `
 
 export default function ArticleBlock({ article }) {
