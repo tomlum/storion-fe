@@ -1,3 +1,38 @@
 body {
-	background-color: #303762;
+	background-color: #1d2239;
+	margin: 0px;
+}
+
+.clickable{
+	cursor: pointer;
+	user-select: none;
+}
+
+a {
+	font-family: Roboto;
+}
+
+h1 {
+	font-family: Roboto;
+	margin: 0px;
+}
+
+h2{
+	font-family: Roboto;
+	margin: 0px;
+}
+
+h3{
+	font-family: Roboto;
+	margin: 0px;
+}
+
+div{
+	font-family: Roboto;
+	margin: 0px;
+}
+
+p{
+	font-family: Roboto;
+	margin: 0px;
 }
