@@ -17,9 +17,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <u>
-          <h1>Storion</h1>
-        </u>
         {this.props.stories &&
           this.props.stories.map(story => <StoryBlock story={story} />)}
       </div>

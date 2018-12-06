@@ -81,7 +81,11 @@ function authHeader() {
 }
 
 export async function authGet(path) {
-  return axios.get(path, authHeader())
+  return axios.get(process.env.REACT_APP_API_URL+path, authHeader())
+}
+
+export async function authPost(path, payload) {
+  return axios.post(process.env.REACT_APP_API_URL+path, payload, authHeader())
 }
 
 export default auth0Client
