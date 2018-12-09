@@ -62,9 +62,10 @@ function* fetchDeskArticlesSaga({ id }) {
         tags[tag] = 1
       })
     })
+    const tagList = Object.keys(articleTags).sort()
     yield put(
       setStore(FETCH_DESK_ARTICLES.success, {
-        desk: { articles, tags }
+        desk: { articles, tags, tagList }
       })
     )
   } catch (e) {

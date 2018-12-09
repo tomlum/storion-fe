@@ -3,16 +3,18 @@ import moment from "moment"
 import styled from "styled-components"
 import pt from "prop-types"
 import Tag from "components/Tag"
+import { colors } from "styles"
 
 const Headline = styled.h2`
-		color: #fff;
-		margin: 0px;
-		font-size: 20px;
+	color: #fff;
+	margin: 0px;
+	font-size: 20px;
+	margin-bottom: 5px;
 `
 const Subtext = styled.div`
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 `
 const ArticleBody = styled.div`
 	border: solid 2px #8991d9;
@@ -76,26 +78,27 @@ export default function ArticleBlock({ article }) {
 	return (
 		<ArticleBody>
 			<Headline>
-						{article.headline}{article.headline}
+				{article.headline}
+				{article.headline}
 			</Headline>
-		<SubContent>
-			<Content>
-				<a
-					style={{ width: "100%" }}
-					href={article.link}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Subtext>
-						<p>[ {moment(article.time).format("ll")} ]</p>
-						<i>{trimURL(article.link)}</i>
-					</Subtext>
-				</a>
-			</Content>
-			<TagSpace>
-				<Tag flush>I'M A TAG I'M A TAG I'M A TAG</Tag>
-			</TagSpace>
-		</SubContent>
+			<SubContent>
+				<Content>
+					<a
+						style={{ width: "100%" }}
+						href={article.link}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Subtext>
+							<p>[ {moment(article.time).format("ll")} ]</p>
+							<i>{trimURL(article.link)}</i>
+						</Subtext>
+					</a>
+				</Content>
+				<TagSpace>
+					<Tag flush>I'M A TAG I'M A TAG I'M A TAG</Tag>
+				</TagSpace>
+			</SubContent>
 		</ArticleBody>
 	)
 }

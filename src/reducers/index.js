@@ -36,7 +36,13 @@ if (process.env.REACT_APP_DEBUG_API) {
           id: 1,
           owner: "tomlumperson@gmail.com",
           headline: "Rockstar says they work 100 hour weeks",
-          tags: {"Rockstar":1, "Games":1, "Bla":1, "Long one yeah":1, "NJ Politics":1},
+          tags: {
+            Rockstar: 1,
+            Games: 1,
+            Bla: 1,
+            "Long one yeah": 1,
+            "NJ Politics": 1
+          },
           link:
             "http://www.vulture.com/2018/10/the-making-of-rockstar-games-red-dead-redemption-2.html",
           time: "2018-11-22T21:31:41.053Z",
@@ -46,7 +52,7 @@ if (process.env.REACT_APP_DEBUG_API) {
           id: 2,
           owner: "tomlumperson@gmail.com",
           headline: "Rockstar clarifies some work 100 hour weeks",
-          tags: {"Rockstar":1},
+          tags: { Rockstar: 1 },
           link:
             "https://kotaku.com/we-were-working-100-hour-weeks-red-dead-redemption-2-h-1829758281",
           time: "2018-11-22T21:31:41.053Z",
@@ -56,7 +62,7 @@ if (process.env.REACT_APP_DEBUG_API) {
           id: 3,
           owner: "tomlumperson@gmail.com",
           headline: "Rockstar lifts social media ban",
-          tags: {"Rockstar":1},
+          tags: { Rockstar: 1 },
           link:
             "https://www.kotaku.com.au/2018/10/red-dead-redemption-2-developers-speak-out-after-rockstar-lifts-social-media-ban/",
           time: "2018-11-22T21:31:41.053Z",
@@ -66,14 +72,35 @@ if (process.env.REACT_APP_DEBUG_API) {
       tags: {
         Rockstar: "Rockstar",
         "Long one": "Long one",
-        "Games": "Games",
+        Games: "Games",
+        a: "a",
+        g: "g",
+        u: "u",
+        "4": "4",
+        e: "e",
         "test 123": "test 123",
         "test 13": "test 13",
         "test 12": "test 13",
         "test 12def3": "test def123",
         "test 12efwe3": "test 12efwe3",
         "test 12ef39jf 3 3": "test 1ef39jf 3 23"
-      }
+      },
+      tagList: [
+        "4",
+        "a",
+        "e",
+        "g",
+        "Games",
+        "Long one",
+        "Rockstar",
+        "test 123",
+        "test 13",
+        "test 12",
+        "test 12def3",
+        "test 12efwe3",
+        "test 12ef39jf 3 3",
+        "u"
+      ]
     }
   }
 }

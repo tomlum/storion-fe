@@ -7,6 +7,11 @@ import { feedSpatch, connect } from "sagas/utils"
 import Tag from "components/Tag"
 import { colors } from "styles"
 
+const SubmitBody = styled.div`
+	border: solid 2px ${colors.rose};
+	background-color: ${colors.lightPurple};
+	width: 100%;
+`
 const FormBody = styled.div`
 	box-sizing: content-box;
 	padding: 8px;
@@ -15,11 +20,12 @@ const FormButton = styled.div.attrs({
 	className: "clickable"
 })`
 	color: ${colors.mintGreen};
+	border-bottom: solid 2px ${colors.rose};
 	padding: 10px;
 	display: flex;
 	justify-content: center;
-	background-color: ${colors.lightBlue};
-	border: solid 2px white;
+	margin-top: -2px;
+	background-color: ${colors.pink};
 `
 const FormRow = styled.div`
 	display: flex;
@@ -56,7 +62,7 @@ class SubmitArticle extends Component {
 
 	render() {
 		return (
-			<div>
+			<SubmitBody>
 				<FormButton onClick={this.toggleOpen}>Add Article +</FormButton>
 				<AnimateHeight
 					duration={200}
@@ -99,7 +105,7 @@ class SubmitArticle extends Component {
 						/>
 					</FormBody>
 				</AnimateHeight>
-			</div>
+			</SubmitBody>
 		)
 	}
 }

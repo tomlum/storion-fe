@@ -6,13 +6,23 @@ import styled from "styled-components"
 import { silentAuth } from "sagas/auth"
 import { feedSpatch, connect } from "sagas/utils"
 import { colors } from "styles"
+import logo from 'assets/small_logo.png';
+
+const HeaderBody = styled.div`
+	background-color: ${colors.purple}
+`
 
 const NavBody = styled.div`
 	display: flex;
-	border-bottom: solid 2px white;
+	border-bottom: solid 12px ${colors.rose};
 `
 const TitleBody = styled.div`
 	display: flex;
+`
+const Logo = styled.img`
+	height: 40px;
+	padding: 10px;
+	padding-bottom: 0px;
 `
 const LeftSection = styled.div`
 	flex: 1;
@@ -21,29 +31,24 @@ const RightSection = styled.div`
 	flex: 1;
 	text-align: right;
 `
-const Title = styled.h1`
-	color: white;
-	padding: 10px;
-`
 const NavButton = styled.div`
 	display: flex;
-	border: solid 2px white;
 	border-bottom: 0px;
 	margin-right: -1px;
+	border-bottom: solid ${({ selected }) => (selected ? "6px" : "0px")} ${colors.rose};
 	justify-content: center;
 	flex-direction: column;
 	justify-content: center;
 	flex: 1;
 	max-width: 200px;
 	text-align: center;
-	background-color: ${colors.lightBlue};
 	height: ${({ selected }) => (selected ? "40px" : "30px")};
 	margin-top: ${({ selected }) => (selected ? "0px" : "10px")};
 
 	border-radius: 5px 5px 0px 0px;
 
 	a {
-		color: white;
+		color: ${colors.rose};
 		text-decoration: none;
 	}
 `
@@ -75,10 +80,10 @@ class Nav extends Component {
 		const user = this.props.user
 		if (user) {
 			return (
-				<div>
+				<HeaderBody>
 					<TitleBody>
 						<LeftSection>
-							<Title>Storion</Title>
+							<Logo src={logo}/>
 						</LeftSection>
 						<RightSection>
 							{user.null ? (
@@ -93,7 +98,7 @@ class Nav extends Component {
 						<NavTab path="/" name="Stories" route={route} />
 						<NavTab path="/desk" name="Desk" route={route} />
 					</NavBody>
-				</div>
+				</HeaderBody>
 			)
 		} else {
 			return <div />

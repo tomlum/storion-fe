@@ -14,7 +14,7 @@ import * as serviceWorker from "./serviceWorker"
 
 WebFont.load({
 	google: {
-		families: ["Roboto:500"]
+		families: ["Roboto:500", "Noto+Serif+TC:500"]
 	}
 })
 
