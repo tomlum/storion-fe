@@ -4,7 +4,7 @@ import pt from "prop-types"
 import { math } from "utils"
 
 const height = 20
-const thickness = 2
+const lineThickness = 2
 
 // position: relative;
 // right: -11px;
@@ -15,6 +15,7 @@ const Ellipsis = styled.div`
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	font-family: Roboto;
 `
 const TagBody = styled.div.attrs({
 	className: "clickable"
@@ -23,12 +24,17 @@ const TagBody = styled.div.attrs({
 	min-width: 10px;
 	max-width: 150px;
 	${({ flush }) => !flush && "margin: 5px;"};
+	margin-bottom: ${({ thickness, flush }) => (flush? 0 : 10)-thickness}px;
 
 	svg {
 		min-width: 10px;
 		width: 10px;
-		height: ${height + thickness * 2}px;
+		${({ thickness }) => `
+			height: ${height + thickness * 2}px;
+			margin-top: ${-thickness}px;
+		`}
 	}
+
 `
 
 const TagText = styled.div`
@@ -37,11 +43,17 @@ const TagText = styled.div`
 	align-items: center;
 	height: ${height}px;
 	overflow: hidden;
-	padding-left: 5px;
-	padding-right: 15px;
 
-	border: solid ${thickness}px hsl(${({ hue }) => hue}, 100%, 80%);
-	border-left: none;
+	font-size: 13px;
+
+	${({ hue, thickness }) =>
+		`
+		margin-top: ${-thickness}px;
+		margin-left: ${-thickness/2}px;
+		padding-left: ${5+thickness/2}px;
+		padding-right: ${15-thickness/2}px;
+		margin-right: ${-thickness/2}px;
+		border: solid ${thickness}px hsl(${hue}, 100%, 80%);`} border-left: none;
 	${({ flush }) => flush && "border-right: none;"};
 `
 
@@ -51,28 +63,29 @@ export default class Tag extends PureComponent {
 	}
 
 	getHue() {
-		return math.mod(this.props.children.slice(-2).charCodeAt(0), 60)
+		return (math.mod(this.props.children.slice(0).toLowerCase().charCodeAt(0), 30)/30)*(1000)
 	}
 
 	render() {
 		const hue = this.getHue()
+		const thickness = lineThickness + (this.props.active ? 3 : 0)
 		return (
-			<TagBody flush={this.props.flush} {...this.props}>
+			<TagBody flush={this.props.flush} {...this.props} thickness={thickness}>
 				<svg>
 					<polyline
 						points={`
-							10, ${height + thickness + 1}
-							0, ${height + thickness + 1}
-							10, ${height / 2}
-							0,${thickness - 1}
-							10,${thickness - 1}
+							10, ${height + thickness*1.5}
+							${thickness/2}, ${height + thickness*1.5}
+							${10-thickness/2}, ${height / 2 + thickness}
+							${thickness/2}, ${thickness/2}
+							10, ${thickness/2}
 							`}
 						fill="none"
 						stroke={`hsl(${hue}, 100%, 80%)`}
 						strokeWidth={thickness}
 					/>
 				</svg>
-				<TagText hue={hue} flush={this.props.flush}>
+				<TagText hue={hue} flush={this.props.flush} thickness={thickness}>
 					<Ellipsis>{this.props.children}</Ellipsis>
 				</TagText>
 			</TagBody>
