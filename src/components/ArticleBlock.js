@@ -3,7 +3,6 @@ import moment from "moment"
 import styled from "styled-components"
 import pt from "prop-types"
 import Tag from "components/Tag"
-import { colors } from "styles"
 
 const Headline = styled.h2`
 	color: #fff;
@@ -11,10 +10,11 @@ const Headline = styled.h2`
 	font-size: 20px;
 	margin-bottom: 5px;
 `
-const Subtext = styled.div`
+const Ellipsis = styled.div`
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	font-size: 10px;
 `
 const ArticleBody = styled.div`
 	border: solid 2px #8991d9;
@@ -24,6 +24,7 @@ const ArticleBody = styled.div`
 	margin-top: -1px;
 	margin-bottom: -1px;
 	font-family: Roboto;
+
 `
 const SubContent = styled.div`
 	display: flex;
@@ -47,7 +48,7 @@ const SubContent = styled.div`
 		margin-left: 5px;
 	}
 `
-const Content = styled.div`
+const SubText = styled.div`
 	flex-grow: 1;
 	flex-shrink: 1;
 	flex-basis: 100%;
@@ -59,6 +60,14 @@ const TagSpace = styled.div`
 	flex-shrink: 5;
 	min-width: 10px;
 	max-width: 150px;
+`
+
+const Anchor = styled.a.attrs({
+	target: "_blank",
+	rel: "noopener noreferrer"
+})`
+	width: 100%;
+	text-decoration: none;
 `
 function trimURL(url) {
 	if (url.startsWith("https://")) {
@@ -77,24 +86,21 @@ function trimURL(url) {
 export default function ArticleBlock({ article }) {
 	return (
 		<ArticleBody>
-			<Headline>
-				{article.headline}
-				{article.headline}
-			</Headline>
+			<Anchor href={article.link}>
+				<Headline>
+					{article.headline}
+					{article.headline}
+				</Headline>
+			</Anchor>
 			<SubContent>
-				<Content>
-					<a
-						style={{ width: "100%" }}
-						href={article.link}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Subtext>
+					<SubText>
+				<Anchor href={article.link}>
+						<Ellipsis>
 							<p>[ {moment(article.time).format("ll")} ]</p>
 							<i>{trimURL(article.link)}</i>
-						</Subtext>
-					</a>
-				</Content>
+						</Ellipsis>
+				</Anchor>
+					</SubText>
 				<TagSpace>
 					<Tag flush>I'M A TAG I'M A TAG I'M A TAG</Tag>
 				</TagSpace>

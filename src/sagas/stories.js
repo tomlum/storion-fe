@@ -55,7 +55,7 @@ function* fetchDeskArticlesSaga({ id }) {
     const tags = {}
     let articleTags = []
     articles.forEach(article => {
-      articleTags = article.tags.split("/$/")
+      articleTags = article.tags.split(",")
       article.tags = {}
       articleTags.forEach(tag => {
         article.tags[tag] = 1
@@ -80,12 +80,12 @@ const POST_ARTICLE = actionEnum("POST_ARTICLE", [
   "failure"
 ])
 
-export const postArticle = spatch(POST_ARTICLE.request, ["data"])
+export const postArticle = spatch(POST_ARTICLE.request, ["articleData"])
 
 function* postArticleSaga(action) {
   try {
     yield call(expectUser)
-    yield authPost("/desk", action.data)
+    yield authPost("/desk", action.articleData)
     yield put(action(POST_ARTICLE.success))
   } catch (e) {
     yield put(errorStore(POST_ARTICLE.failure, e.message))
