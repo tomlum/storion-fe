@@ -25,7 +25,8 @@ const TagBody = styled.div.attrs({
 	max-width: 150px;
 	${({ flush }) => !flush && "margin: 5px;"};
 	margin-bottom: ${({ thickness, flush }) => (flush? 0 : 10)-thickness}px;
-
+	${props => props.articleActive && "opacity: 0.4;"}
+	transition: opacity .1s ease-in-out;
 	svg {
 		min-width: 10px;
 		width: 10px;
@@ -34,7 +35,6 @@ const TagBody = styled.div.attrs({
 			margin-top: ${-thickness}px;
 		`}
 	}
-
 `
 
 const TagText = styled.div`
