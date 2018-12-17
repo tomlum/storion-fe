@@ -4,7 +4,7 @@ export const colors = {
 	forestGreen: "#39a70f",
 	purple: "#1c163b",
 	lightPurple: "#352d55",
-	lighterPurple: "#56488e",
+	lighterPurple: "#514e84",
 	rose: "#ded5e2",
 	red: "#ef6868"
 }

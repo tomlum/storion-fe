@@ -7,7 +7,7 @@ import Tag from "components/Tag"
 const Headline = styled.h2`
 	color: #fff;
 	margin: 0px;
-	font-size: 20px;
+	font-size: 17px;
 	margin-bottom: 5px;
 `
 const Ellipsis = styled.div`

@@ -6,11 +6,6 @@ import { math } from "utils"
 const height = 20
 const lineThickness = 2
 
-// position: relative;
-// right: -11px;
-// top: -11px;
-// z-index: 10;
-
 const Ellipsis = styled.div`
 	overflow: hidden;
 	white-space: nowrap;
@@ -35,6 +30,17 @@ const TagBody = styled.div.attrs({
 			margin-top: ${-thickness}px;
 		`}
 	}
+
+	animation-duration: 0.2s;
+	animation-name: appear;
+	@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 `
 
 const TagText = styled.div`
