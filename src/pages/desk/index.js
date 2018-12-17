@@ -55,10 +55,8 @@ const Options = styled.div`
 `
 const Col = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-`
-const Row = styled.div`
-  display: flex;
 `
 const TagList = styled.div`
   display: flex;
@@ -68,6 +66,7 @@ const TagList = styled.div`
   overflow: hidden;
   padding: 5px;
   border-bottom: 0px;
+  min-height: 53px;
   background-color: ${colors.lightPurple};
 `
 const SearchContainer = styled.div`
@@ -113,7 +112,6 @@ class Desk extends Component {
   }
 
   state = {
-    searchString: "",
     tagsOpen: false,
     filteredTags: [],
     newArticleTags: [],
@@ -122,10 +120,6 @@ class Desk extends Component {
 
   componentDidMount() {
     this.props.fetchDeskArticles(this.props.match.params.id)
-  }
-
-  searchType = e => {
-    this.setState({ searchString: e.target.value })
   }
 
   toggleOpenTagList = () => {
@@ -184,9 +178,9 @@ class Desk extends Component {
           article => noFilters || this.relevantArticle(article)
         )
       }
-      if (this.state.searchString.length > 0) {
+      if (this.props.searchString.length > 0) {
         articleArray = articleArray.filter(article =>
-          article.headline.toLowerCase().includes(this.state.searchString)
+          article.headline.toLowerCase().includes(this.props.searchString)
         )
       }
       if (articleArray.length === 0 && articleArray.lenght !== originalLength) {
@@ -194,68 +188,78 @@ class Desk extends Component {
       }
     }
 
-    return (
-      <div>
-        <Options>
-          <Col>
-            <SearchContainer>
-              <Search
-                placeholder="Search"
-                value={this.state.searchString}
-                onChange={this.searchType}
+    if (this.props.tagList) {
+      return (
+        <div>
+          <Options>
+            <Col>
+              <SearchContainer>
+                <Search
+                  placeholder="Search"
+                  value={this.props.searchString}
+                  onChange={this.props.searchType}
+                />
+              </SearchContainer>
+              <SubmitArticle
+                open={this.state.newArticleOpen}
+                onClick={this.toggleOpenNewArticle}
+                tagList={Object.keys(this.state.newArticleTags).sort()}
+                tagsAvailable={Object.keys(this.props.tagList).length > 0}
+                toggleTag={this.toggleTag}
               />
-            </SearchContainer>
-            <SubmitArticle
-              open={this.state.newArticleOpen}
-              onClick={this.toggleOpenNewArticle}
-              tagList={Object.keys(this.state.newArticleTags).sort()}
-              tagsAvailable={Object.keys(this.props.tagList).length > 0}
-              toggleTag={this.toggleTag}
-            />
-            <AnimateHeight
-              duration={200}
-              easing="ease-in-out"
-              height={this.state.tagsOpen ? "auto" : 53}
-            >
-              <TagList open={this.state.tagsOpen}>
-                {this.props.tags &&
-                  this.props.tagList.map(tag => (
-                    <Tag
-                      key={tag}
-                      active={this.usedTag(tag)}
-                      articleActive={this.articleUsedTag(tag)}
-                      onClick={() => this.toggleTag(tag)}
-                    >
-                      {tag}
-                    </Tag>
-                  ))}
-              </TagList>
-            </AnimateHeight>
-            <OpenTagListButton onClick={this.toggleOpenTagList}>
-              {this.state.tagsOpen ? arrowDown : arrowUp}
-            </OpenTagListButton>
-          </Col>
-        </Options>
+              <AnimateHeight
+                duration={200}
+                easing="ease-in-out"
+                height={this.state.tagsOpen ? "auto" : 53}
+              >
+                <TagList open={this.state.tagsOpen}>
+                  {this.props.tags &&
+                    this.props.tagList.map(tag => (
+                      <Tag
+                        key={tag}
+                        active={this.usedTag(tag)}
+                        articleActive={this.articleUsedTag(tag)}
+                        onClick={() => this.toggleTag(tag)}
+                      >
+                        {tag}
+                      </Tag>
+                    ))}
+                </TagList>
+              </AnimateHeight>
+              <OpenTagListButton onClick={this.toggleOpenTagList}>
+                {this.state.tagsOpen ? arrowDown : arrowUp}
+              </OpenTagListButton>
+            </Col>
+          </Options>
 
-        {articleArray === "no results" ? (
-          <NoResults>No articles found with those search conditions</NoResults>
-        ) : (
-          articleArray.map(article => (
-            <ArticleBlock key={article.id} article={article} />
-          ))
-        )}
-      </div>
-    )
+          {articleArray === "no results" ? (
+            <NoResults>
+              No articles found with those search conditions
+            </NoResults>
+          ) : (
+            articleArray.map(article => (
+              <ArticleBlock key={article.id} article={article} />
+            ))
+          )}
+        </div>
+      )
+    } else {
+      return <div />
+    }
   }
 }
 
-const storeToProps = ({ desk: { articles, tags, tagList } }) => ({
+const storeToProps = ({ desk: { articles, tags, tagList, searchString } }) => ({
   articles,
   tags,
-  tagList
+  tagList,
+  searchString: searchString || ""
 })
 
-const actionsToProps = feedSpatch({ fetchDeskArticles })
+const actionsToProps = feedSpatch(
+  { fetchDeskArticles },
+  { searchType: e => ({ desk: { searchString: e.target.value } }) }
+)
 
 export default connect(
   storeToProps,

@@ -1,0 +1,1099 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"t_drum",
+				"t_drumUp"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"tex",
+				"Text"
+			],
+			[
+				"flex",
+				"flexDirection"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/sagas/stories.js",
+			"settings":
+			{
+				"buffer_size": 3219,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/components/SubmitArticle.js",
+			"settings":
+			{
+				"buffer_size": 11374,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "a\n\nloading and error screens",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Unix",
+				"name": "a"
+			}
+		},
+		{
+			"contents": "on finishing month type, focus on next",
+			"settings":
+			{
+				"buffer_size": 38,
+				"line_ending": "Unix",
+				"name": "on finishing month type, focus on next"
+			}
+		},
+		{
+			"contents": "IMG_0349.MOV\n\nx on right side of search to cancel it\n\nseparate search phrases by commas\n\ntype linkit.org/url\n\nAlso load the \n\nthere is no voter fraud\ntrumps lies\n\nim going to spend that remaining time freaking out about the lack of time\n\nselect font for your initials",
+			"settings":
+			{
+				"buffer_size": 267,
+				"line_ending": "Unix",
+				"name": "IMG_0349.MOV"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Lua/Lua.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Love2D"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: File"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: Project"
+				],
+				[
+					"Packages/User/Love.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Lua Love/LuaLove.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 357.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"color high",
+				"Color Highlight: Disable Color Highlighting"
+			],
+			[
+				"color",
+				"Preferences: Color Highlight Settings"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"jsp",
+				"Preferences: JsPrettier Settings - Default"
+			],
+			[
+				"prett",
+				"Preferences: JsPrettier Settings - Default"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"build",
+				"Build: New Build System"
+			],
+			[
+				"lua form",
+				"LuaFormat: Key Bindings"
+			],
+			[
+				"forma",
+				"FormatLua: Format Lua code"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"listpac",
+				"Package Control: List Packages"
+			],
+			[
+				"sublimelinter ",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"sublimelinter de",
+				"SublimeLinter: Disable Debug Mode"
+			],
+			[
+				"subleim",
+				"SublimeLinter: Enable Debug Mode"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"unmana",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"prettier",
+				"JsPrettier: Format Code"
+			],
+			[
+				"prettify",
+				"HTMLPrettify: Set Keyboard Shortcuts"
+			]
+		],
+		"width": 430.0
+	},
+	"console":
+	{
+		"height": 147.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Hi/Desktop/storion-fe",
+		"/Users/Hi/Desktop/storion-fe/public",
+		"/Users/Hi/Desktop/storion-fe/src",
+		"/Users/Hi/Desktop/storion-fe/src/components",
+		"/Users/Hi/Desktop/storion-fe/src/reducers",
+		"/Users/Hi/Desktop/storion-fe/src/sagas"
+	],
+	"file_history":
+	[
+		"/Users/Hi/Desktop/storion-fe/src/utils.js",
+		"/Users/Hi/Desktop/storion-fe/src/auth.js",
+		"/Users/Hi/Desktop/storion-fe/node_modules/redux-saga/dist/redux-saga-effects.dev.cjs.js",
+		"/Users/Hi/Desktop/storion-fe/config/webpack.config.dev.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/Tag.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/SubmitArticle.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/desk/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/index.css",
+		"/Users/Hi/Desktop/storion-fe/src/components/ArticleBlock.js",
+		"/Users/Hi/Desktop/storion-fe/src/styles.js",
+		"/Users/Hi/Desktop/storion-fe/.env",
+		"/Users/Hi/Desktop/storion-fe/package.json",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/stories.js",
+		"/Users/Hi/Desktop/storion-fe/src/reducers/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/NewArticle.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/Nav.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/utils.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/Routes.js",
+		"/Users/Hi/Desktop/storion-fe/src/index.js",
+		"/Users/Hi/Desktop/storion-fe/node_modules/cssom/lib/StyleSheet.js",
+		"/Users/Hi/Desktop/storion-be/,",
+		"/Users/Hi/Desktop/storion-fe/src/pages/desk/TagList.js",
+		"/Users/Hi/Library/Application Support/Sublime Text 3/Packages/JsPrettier/JsPrettier.sublime-settings",
+		"/Users/Hi/Desktop/storion-fe/misc/misc.notes",
+		"/Users/Hi/Desktop/storion-fe/.gitignore",
+		"/Users/Hi/Desktop/storion-fe/.babelrc",
+		"/Users/Hi/Desktop/storion-fe/src/pages/new-chain/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/story/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/home/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/box/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/auth.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/box.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/StoryBlock.js",
+		"/Users/Hi/Library/Application Support/Sublime Text 3/Packages/User/JsPrettier.sublime-settings",
+		"/Users/Hi/Desktop/storion-fe/src/pages/authenticating/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/reducers/setters.js",
+		"/Users/Hi/Desktop/storion-fe/src/actions.js",
+		"/Users/Hi/Desktop/storion-fe/src/reducers/stories.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/auth-sagas.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/story-sagas.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/storySagas.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/actions.js",
+		"/Users/Hi/Desktop/storion-fe/config/env.js",
+		"/Users/Hi/Desktop/storion-fe/src/.env",
+		"/Users/Hi/Desktop/storion-fe/src/pages/authorizing/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/authorizing.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/Authorizing.js",
+		"/Users/Hi/Desktop/storion-fe/src/App.js",
+		"/Users/Hi/Desktop/storion-fe/src/SecuredRoute/SecuredRoute.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/Story/index.js",
+		"/Users/Hi/Desktop/storion-fe/public/index.html",
+		"/Users/Hi/Desktop/storion-fe/src/Auth.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/StoryBox.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/tailSagas.js",
+		"/Users/Hi/Desktop/storion-fe/src/reducers/tails.js",
+		"/Users/Hi/Desktop/storion-fe/scripts/start.js",
+		"/Users/Hi/Desktop/the-tail/package.json",
+		"/Users/Hi/Desktop/the-tail/.babelrc",
+		"/Users/Hi/Desktop/the-tail/pages/about.js",
+		"/Users/Hi/Desktop/the-tail/misc/design.notes",
+		"/Users/Hi/Desktop/the-tail/src/App.js",
+		"/Users/Hi/Desktop/keybored/misc/wishes.notes",
+		"/Users/Hi/Desktop/the-tail/.eslintrc",
+		"/Users/Hi/Desktop/keybored/misc/minigames.notes",
+		"/Users/Hi/Desktop/keybored/keyboard.lua",
+		"/Users/Hi/Desktop/keybored/utilities/utilities.lua",
+		"/Users/Hi/Desktop/keybored/utilities/commonUtilities.lua",
+		"/Users/Hi/Desktop/keybored/misc/metamodes.notes",
+		"/Users/Hi/Desktop/keybored/metamodes.notes",
+		"/Users/Hi/Desktop/keybored/misc.notes",
+		"/Users/Hi/Desktop/keybored/minigames.notes",
+		"/Users/Hi/Desktop/keybored/items.notes",
+		"/Users/Hi/Desktop/Projects/GreyVision/_locales/en/messages.json",
+		"/Users/Hi/Desktop/Projects/GreyVision/src/page_action/page_action.html",
+		"/Users/Hi/Desktop/Projects/GreyVision/manifest.json",
+		"/Users/Hi/Desktop/Projects/GreyVision/src/inject/injectYoutube.js",
+		"/Users/Hi/Desktop/IIInfinity/misc.notes",
+		"/Users/Hi/Desktop/feed.xml",
+		"/Users/Hi/Desktop/tomlum.github.io/css/tomlum.css",
+		"/Users/Hi/Desktop/You and a bee.",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/timeTrials.js",
+		"/Users/Hi/Desktop/tomlum.github.io/css/timeTrials.css",
+		"/Users/Hi/Desktop/tomlum.github.io/index.html",
+		"/Users/Hi/Desktop/tomlum.github.io/the-time-trials.html",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/monkeyMobile.js",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/drawSheep.js",
+		"/Users/Hi/Desktop/tomlum.github.io/apps/draw-sheep.html",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/countSheep.js",
+		"/Users/Hi/Desktop/Prophets/feed.xml",
+		"/Users/Hi/Desktop/Prophets/FnP Feed.xml",
+		"/Users/Hi/Desktop/Projects/projects.notes",
+		"/Users/Hi/Desktop/Projects/BetterPodcast.notes",
+		"/Users/Hi/Desktop/tomlum.github.io/monkeyBrain.html",
+		"/Users/Hi/Desktop/tomlum.github.io/doodlebrains.html",
+		"/Users/Hi/Desktop/tomlum.github.io/countSheep.html",
+		"/Users/Hi/Desktop/tomlum.github.io/1_Monkey.html",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/monkey.js",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/pixiTools.js",
+		"/Users/Hi/Desktop/tomlum.github.io/css/dropdown.css",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/bootstrap.min.js",
+		"/Users/Hi/Desktop/Projects/frames/frames game.notes",
+		"/Users/Hi/Desktop/scratch.notes",
+		"/Users/Hi/Desktop/Projects/1-Monkey/package.json",
+		"/Users/Hi/Desktop/Projects/HitMiss/commonUtilities.lua",
+		"/Users/Hi/Desktop/notes.notes",
+		"/Users/Hi/Desktop/Projects/No-Answer/main.lua",
+		"/Users/Hi/Desktop/Projects/Monkey/src/Pixel.jsx",
+		"/Users/Hi/Desktop/Projects/Monkey/Pixel.jsx",
+		"/Users/Hi/Desktop/Projects/Monkey/package.json",
+		"/Users/Hi/Desktop/Projects/Monkey/.eslintrc",
+		"/Users/Hi/Desktop/Projects/Monkey/node_modules/babel-polyfill/dist/polyfill.js",
+		"/Users/Hi/Desktop/SuperLuminauts/controls.lua",
+		"/Users/Hi/Desktop/SuperLuminauts/player.lua",
+		"/Users/Hi/Desktop/SuperLuminauts/main.lua",
+		"/Users/Hi/Desktop/SuperLuminauts/config.lua",
+		"/Users/Hi/Desktop/SuperLuminauts/menus.lua",
+		"/Users/Hi/Desktop/number.js",
+		"/Users/Hi/Desktop/tomlum.github.io/scripts/{",
+		"/Users/Hi/Desktop/tomlum.github.io/countSheep.js",
+		"/Users/Hi/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/Default (OSX).sublime-keymap",
+		"/Users/Hi/Desktop/tomlum.github.io/pixi.min.js",
+		"/Users/Hi/Desktop/SuperLuminauts/assets/sounds/dodge.wav",
+		"/Users/Hi/Desktop/SuperLuminauts/missions.lua",
+		"/Users/Hi/Desktop/SuperLuminauts/enviro.lua",
+		"/Users/Hi/Desktop/SuperLuminauts/gamemodes.lua",
+		"/Users/Hi/Desktop/Projects/complexity",
+		"/Users/Hi/Desktop/tomlum.github.io/bla.html"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 132.0,
+		"where_history":
+		[
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map, -*/build/*, -*/scripts/*",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map, -*/build/*",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map -*/build/*",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*/map",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*/log",
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json",
+			"-*/node_modules/*, -*.md, -package.json",
+			"-*/node_modules/*, -*.md",
+			"-*/node_modules/*",
+			"",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock, -*/config/*, -*/build/*, -package.json, -*/scripts/*",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock, -*/config/*, -*/build/*, -package.json, -*/scrips/*",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock, -*/config/*, -*/build/*, -package.json",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock, -*/config/*, -*/build/*",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock, -*/config/*, */build/*",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock, -*/config/*",
+			"-*/node_modules/*, -*/static/*, -*.md, -*.lock",
+			"-*/node_modules/*, -*/static/*, -*.md, -*/lock",
+			"-*/node_modules/*, -*/static/*, -*.md",
+			"-*/node_modules/*, -*/static/*",
+			"-*/node_modules/*, - */static/*",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"authPost",
+			"authget",
+			"authpush",
+			"console.log",
+			"articleTags",
+			"\",\"",
+			"article.tags.split",
+			"$",
+			"/$/",
+			"stringCompare",
+			"module.exports",
+			"values.",
+			"TagList",
+			"tagList",
+			"TagList",
+			"tagList",
+			"moment",
+			"relative",
+			"articledata",
+			"sortstring",
+			"sortstrings",
+			"53px",
+			"tagList",
+			"TagList",
+			"tagList",
+			"TagList",
+			"height",
+			"tagList",
+			"TagList",
+			"tagList",
+			"TagList",
+			"taglist",
+			"SearchContainer",
+			"Options",
+			"tagList",
+			"TagList",
+			"tagList",
+			"TagList",
+			"tagList",
+			".length > 0",
+			"REACT_APP_API_URL",
+			"authPost",
+			"expectUser",
+			"post_article",
+			"postArticle",
+			": ",
+			"submit",
+			"FormButton",
+			"onSubmit",
+			"submit",
+			"nextRef",
+			"nextref",
+			"console.log",
+			"nextref",
+			"onKeyPress",
+			"props",
+			".select",
+			".select()",
+			"select",
+			"focusSelect",
+			"select",
+			"FormField",
+			"this.refs",
+			"ref",
+			"newArticleOpen",
+			"toggleOpenNewArticle",
+			"open",
+			"this.refs",
+			"yearRef",
+			"innerref",
+			"focus",
+			"ref",
+			"dayRef",
+			"FormField",
+			"e.key === \"Enter\"",
+			"enter",
+			"onKeyPress",
+			"FormField",
+			"postArticle",
+			"stringCompare",
+			"stringcompare",
+			"FormField",
+			"FormFields",
+			"innerRef",
+			"innerref",
+			"headline",
+			"currenturl",
+			"\"\"",
+			" \"\"",
+			":",
+			"setvalue",
+			"console.log",
+			"submit",
+			"date",
+			"Date",
+			"date",
+			"fillDate",
+			"triedToSubmit",
+			"fillDate",
+			"true",
+			"console.log",
+			"number",
+			"string",
+			"ErrorText",
+			"isSubmitting",
+			"touched",
+			"status",
+			"values",
+			"setValues",
+			"setvalues",
+			"console.log",
+			"articleSchema",
+			"setFieldValue",
+			"articleSchema",
+			"triedToSubmit",
+			"FormField",
+			"error",
+			"console.log",
+			"error",
+			"Date",
+			"date",
+			"time",
+			"from \"moment",
+			"articleSchema",
+			"postArticle",
+			"suggestedtag",
+			"suggesttag",
+			"animation"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			".lighterPurple",
+			"fetchDeskArticles",
+			"fetchStoryArticles",
+			"errorStore",
+			"StoryBlock",
+			"FETCH_STORIES_",
+			"EFX_FETCH_TAILS_R",
+			"EFX_FETCH_TAILS_F",
+			"EFX_FETCH_TAILS_S"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/sagas/stories.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2298,
+								2298
+							]
+						],
+						"settings":
+						{
+							"SL.96.region_keys":
+							[
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/components/SubmitArticle.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11374,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4743,
+								4743
+							]
+						],
+						"settings":
+						{
+							"SL.109.region_keys":
+							[
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4326.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28,
+								28
+							]
+						],
+						"settings":
+						{
+							"SL.77.region_keys":
+							[
+							],
+							"auto_name": "a",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"SL.78.region_keys":
+							[
+							],
+							"auto_name": "on finishing month type, focus on next",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 267,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"SL.108.region_keys":
+							[
+							],
+							"SL.83.region_keys":
+							[
+							],
+							"auto_name": "IMG_0349.MOV",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 142.0
+	},
+	"output.exec":
+	{
+		"height": 32.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/Love.sublime-build",
+	"project": "storion-fe.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"tag",
+				"src/components/Tag.js"
+			],
+			[
+				".css",
+				"src/index.css"
+			],
+			[
+				"styles.js",
+				"src/styles.js"
+			],
+			[
+				"styles.j",
+				"src/styles.js"
+			],
+			[
+				"articlebl",
+				"src/components/ArticleBlock.js"
+			],
+			[
+				"desk/inde",
+				"src/pages/desk/index.js"
+			],
+			[
+				"articleblock",
+				"src/components/ArticleBlock.js"
+			],
+			[
+				"index.",
+				"src/index.css"
+			],
+			[
+				"index.css",
+				"src/index.css"
+			],
+			[
+				"nav",
+				"src/components/Nav.js"
+			],
+			[
+				"styles",
+				"node_modules/cssom/lib/StyleSheet.js"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"tag.",
+				"src/components/Tag.js"
+			],
+			[
+				"sagas/util",
+				"src/sagas/utils.js"
+			],
+			[
+				"submitarti",
+				"src/components/SubmitArticle.js"
+			],
+			[
+				"package.json",
+				"package.json"
+			],
+			[
+				"components/nav",
+				"src/components/Nav.js"
+			],
+			[
+				"story/in",
+				"src/pages/story/index.js"
+			],
+			[
+				"sagas/stor",
+				"src/sagas/stories.js"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"sagas/au",
+				"src/sagas/auth.js"
+			],
+			[
+				"home/inde",
+				"src/pages/home/index.js"
+			],
+			[
+				"pages/rou",
+				"src/pages/Routes.js"
+			],
+			[
+				"pages/auth",
+				"src/pages/authenticating/index.js"
+			],
+			[
+				"sagas/auth",
+				"src/sagas/auth.js"
+			],
+			[
+				"sagas/aut",
+				"src/sagas/auth.js"
+			],
+			[
+				"nav.js",
+				"src/components/Nav.js"
+			],
+			[
+				"auth.js",
+				"src/auth.js"
+			],
+			[
+				"auth",
+				"src/auth.js"
+			],
+			[
+				"Routes.",
+				"src/pages/Routes.js"
+			],
+			[
+				"authorizing",
+				"src/pages/Authorizing.js"
+			],
+			[
+				"Nav.js",
+				"src/components/Nav.js"
+			],
+			[
+				"article",
+				"src/components/ArticleBlock.js"
+			],
+			[
+				".html",
+				"public/index.html"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"metam",
+				"misc/metamodes.notes"
+			],
+			[
+				"minig",
+				"misc/minigames.notes"
+			],
+			[
+				"key.",
+				"keyboard.lua"
+			],
+			[
+				"utili",
+				"utilities/commonUtilities.lua"
+			],
+			[
+				"miniga",
+				"misc/minigames.notes"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"dood",
+				"doodle-brains.html"
+			],
+			[
+				"time",
+				"css/timeTrials.css"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"draw",
+				"scripts/drawSheep.js"
+			],
+			[
+				"doodlebrains",
+				"doodlebrains.html"
+			],
+			[
+				"configs",
+				"src/configs.js"
+			],
+			[
+				"comm",
+				"commonUtilities.lua"
+			],
+			[
+				"main",
+				"main.lua"
+			],
+			[
+				"camera",
+				"utilities/camera.lua"
+			],
+			[
+				"config",
+				"config.lua"
+			],
+			[
+				"menus",
+				"menus.lua"
+			],
+			[
+				"menuanim",
+				"menuAnimation.lua"
+			],
+			[
+				"controls",
+				"controls.lua"
+			],
+			[
+				"contr",
+				"controller.lua"
+			],
+			[
+				"ite",
+				"items.lua"
+			],
+			[
+				"todo",
+				"assets/sounds/dodge.wav"
+			],
+			[
+				"save",
+				"save.lua"
+			],
+			[
+				"miss",
+				"missions.lua"
+			],
+			[
+				"envir",
+				"enviro.lua"
+			],
+			[
+				"envi",
+				"enviro.lua"
+			],
+			[
+				"game",
+				"gamemodes.lua"
+			],
+			[
+				"conf",
+				"config.lua"
+			],
+			[
+				"gamem",
+				"gamemodes.lua"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 357.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 612.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 121.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

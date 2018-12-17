@@ -14,13 +14,13 @@ const HeaderBody = styled.div`
 
 const NavBody = styled.div`
 	display: flex;
-	border-bottom: solid 12px ${colors.rose};
+	border-bottom: solid 6px ${colors.rose};
 `
 const TitleBody = styled.div`
 	display: flex;
 `
 const Logo = styled.img`
-	height: 40px;
+	height: 35px;
 	padding: 10px;
 	padding-bottom: 0px;
 `
