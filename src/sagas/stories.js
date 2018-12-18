@@ -21,18 +21,13 @@ function* fetchStoriesSaga(action) {
     yield put(setStore(FETCH_STORIES.success, { stories: stories.data }))
     yield put(loadingFinish)
   } catch (e) {
-    yield put(errorStore(FETCH_STORIES.failure, e.message))
+    yield put(errorStore(FETCH_STORIES.failure, e.response.data))
     yield put(loadingFinish)
   }
 }
 // ----------------------------------------------------
 // ----------------------------------------------------
 const FETCH_STORY_ARTICLES = actionEnum("FETCH_STORY_ARTICLES", [
-  "request",
-  "success",
-  "failure"
-])
-export const FETCH_DESK_ARTICLES = actionEnum("FETCH_DESK_ARTICLES", [
   "request",
   "success",
   "failure"
@@ -50,10 +45,16 @@ function* fetchStoryArticlesSaga({ id }) {
     )
     yield put(loadingFinish)
   } catch (e) {
-    yield put(errorStore(FETCH_STORY_ARTICLES.failure, e.message))
+    yield put(errorStore(FETCH_STORY_ARTICLES.failure, e.response.data))
     yield put(loadingFinish)
   }
 }
+
+export const FETCH_DESK_ARTICLES = actionEnum("FETCH_DESK_ARTICLES", [
+  "request",
+  "success",
+  "failure"
+])
 
 export const fetchDeskArticles = spatch(FETCH_DESK_ARTICLES.request, ["id"])
 
@@ -81,7 +82,7 @@ function* fetchDeskArticlesSaga({ id }) {
     )
     yield put(loadingFinish)
   } catch (e) {
-    yield put(errorStore(FETCH_DESK_ARTICLES.failure, e.message))
+    yield put(errorStore(FETCH_DESK_ARTICLES.failure, e.response.data))
     yield put(loadingFinish)
   }
 }
@@ -109,8 +110,7 @@ function* postArticleSaga(action) {
     yield put(spaction(POST_ARTICLE.success))
     yield put(spaction(FETCH_DESK_ARTICLES.request))
   } catch (e) {
-    console.log(e)
-    yield put(errorStore(POST_ARTICLE.failure, e.message))
+    yield put(errorStore(POST_ARTICLE.failure, e.response.data))
     yield put(loadingFinish)
   }
 }

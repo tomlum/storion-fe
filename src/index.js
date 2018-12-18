@@ -8,7 +8,7 @@ import createSagaMiddleware from "redux-saga"
 import reducers from "./reducers"
 import sagas from "./sagas"
 
-import "./index.css"
+import "./main.css"
 import App from "./pages/Routes"
 import * as serviceWorker from "./serviceWorker"
 

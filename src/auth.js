@@ -85,7 +85,6 @@ export async function authGet(path) {
 }
 
 export async function authPost(path, payload) {
-  console.log(payload)
   return axios.post(process.env.REACT_APP_API_URL+path, payload, authHeader())
 }
 

@@ -34,6 +34,7 @@ const FormBody = styled.div`
 	padding: 8px;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	box-shadow: inset 0px 0px 13px 4px #222;
 `
 const FormButton = styled.div.attrs({
 	className: "clickable"
@@ -58,10 +59,11 @@ const SubmitRow = styled.div`
 `
 const FormFields = styled.div`
 	max-width: 500px;
+	margin: auto;
 `
 const FieldLabel = styled.p`
 	color: white;
-	min-width: 80px;
+	min-width: 90px;
 	font-size: 15px;
 `
 const FormField = styled(Field).attrs({
@@ -102,7 +104,7 @@ const ErrorText = styled.p`
 	color: ${colors.red};
 `
 const SuggestTagText = styled.p`
-	margin-left: 90px;
+	margin-left: 100px;
 	font-size: 15px;
 	height: 35px;
 	color: #bbb;
@@ -110,6 +112,15 @@ const SuggestTagText = styled.p`
 const TagList = styled.div`
 	display: flex;
 	margin-left: 90px;
+`
+
+const OptionalDivider = styled.div`
+	flex: 1;
+	height: 3px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #bbb;
+	opacity: 0.5;
 `
 
 function fillDate(n, length) {
@@ -133,16 +144,12 @@ const articleSchema = Yup.object().shape({
 	time: Yup.mixed(),
 	validDate: Yup.mixed().test(
 		"is-valid-date",
-		"Invalid date.  If unsure, press the question mark.",
+		"Invalid date.  If unsure, leave blank.",
 		function() {
-			if (!this.parent.month || !this.parent.day || !this.parent.year) {
-				return false
-			} else if (
-				this.parent.month === "?" &&
-				this.parent.day === "?" &&
-				this.parent.year === "?"
-			) {
+			if (!this.parent.month && !this.parent.day && !this.parent.year) {
 				return true
+			} else if (!this.parent.month || !this.parent.day || !this.parent.year) {
+				return false
 			} else {
 				return moment(
 					formatDate(this.parent.day, this.parent.month, this.parent.year),
@@ -155,14 +162,30 @@ const articleSchema = Yup.object().shape({
 	newTag: Yup.string()
 })
 
-const SubmitButton = styled.button`
-	margin-top: 10px;
-	margin-left: 90px;
+const SubmitButtonRow = styled.div`
+	text-align: right;
 `
 
 const Space = styled.div`
 	width: ${({ w }) => w}px;
 `
+
+class CheckEditedArticle extends Component {
+	componentDidUpdate(prevProps) {
+		if (
+			(!prevProps.article && this.props.article) ||
+			prevProps.article.id !== this.props.article.id
+		) {
+			this.props.linkRef.current.focus()
+			this.props.setValues(this.props.article)
+		}
+	}
+
+	render() {
+		return null
+	}
+}
+
 class SubmitArticle extends Component {
 	constructor(props) {
 		super(props)
@@ -223,11 +246,7 @@ class SubmitArticle extends Component {
 									...this.props.tagList,
 									...this.state.newTagList
 								].sort(string.compare)
-								values.time = formatDate(
-									values.month,
-									values.day,
-									values.year
-								)
+								values.time = formatDate(values.month, values.day, values.year)
 								this.props.postArticle(values)
 							}}
 						>
@@ -235,7 +254,12 @@ class SubmitArticle extends Component {
 								<Form>
 									<FormFields>
 										<FormRow>
-											<FieldLabel>Link</FieldLabel>
+											<CheckEditedArticle
+												article={this.props.editedArticle}
+												setValues={setValues}
+												linkRef={this.ref.link}
+											/>
+											<FieldLabel>Link *</FieldLabel>
 											<FormField
 												innerRef={this.ref.link}
 												type="text"
@@ -245,7 +269,7 @@ class SubmitArticle extends Component {
 											/>
 										</FormRow>
 										<FormRow>
-											<FieldLabel>Headline</FieldLabel>
+											<FieldLabel>Headline *</FieldLabel>
 											<FormField
 												innerRef={this.ref.headline}
 												component="textarea"
@@ -265,6 +289,7 @@ class SubmitArticle extends Component {
 												nextref={this.ref.month}
 											/>
 										</FormRow>
+										<OptionalDivider />
 										<FormRow>
 											<FieldLabel>Date</FieldLabel>
 											<DateFields>
@@ -340,20 +365,6 @@ class SubmitArticle extends Component {
 											>
 												Today
 											</button>
-											<button
-												type="button"
-												style={{ marginLeft: "10px" }}
-												onClick={() => {
-													setValues({
-														...values,
-														month: "?",
-														day: "?",
-														year: "?"
-													})
-												}}
-											>
-												?
-											</button>
 										</FormRow>
 										{this.state.triedToSubmit &&
 											errors.validDate && (
@@ -410,46 +421,51 @@ class SubmitArticle extends Component {
 													</div>
 												)}
 										</FormRow>
-									</FormFields>
-									{this.props.tagList.length <= 0 &&
-									this.state.newTagList.length <= 0 ? (
-										this.props.tagsAvailable && (
-											<SuggestTagText>Add Tags Below</SuggestTagText>
-										)
-									) : (
-										<TagList>
-											{this.state.newTagList.map(tag => (
-												<Tag
-													onClick={() => {
-														array.remove(this.state.newTagList, tag)
-														this.setState({ newTagList: this.state.newTagList })
-													}}
-													key={tag}
-												>
-													{tag}
-												</Tag>
-											))}
-											{this.props.tagList.map(tag => (
-												<Tag
-													onClick={() => {
-														this.props.toggleTag(tag)
-													}}
-													key={tag}
-												>
-													{tag}
-												</Tag>
-											))}
-										</TagList>
-									)}
+										{this.props.tagList.length <= 0 &&
+										this.state.newTagList.length <= 0 ? (
+											this.props.tagsAvailable && (
+												<SuggestTagText>Add Tags Below</SuggestTagText>
+											)
+										) : (
+											<TagList>
+												{this.state.newTagList.map(tag => (
+													<Tag
+														onClick={() => {
+															array.remove(this.state.newTagList, tag)
+															this.setState({
+																newTagList: this.state.newTagList
+															})
+														}}
+														key={tag}
+													>
+														{tag}
+													</Tag>
+												))}
+												{this.props.tagList.map(tag => (
+													<Tag
+														onClick={() => {
+															this.props.toggleTag(tag)
+														}}
+														key={tag}
+													>
+														{tag}
+													</Tag>
+												))}
+											</TagList>
+										)}
 
-									<SubmitButton
-										type="submit"
-										onClick={() => {
-											this.setState({ triedToSubmit: true })
-										}}
-									>
-										Submit
-									</SubmitButton>
+										<SubmitButtonRow>
+											<button
+												type="submit"
+												onClick={() => {
+													this.setState({ triedToSubmit: true })
+												}}
+											>
+												{" "}
+												Submit
+											</button>
+										</SubmitButtonRow>
+									</FormFields>
 								</Form>
 							)}
 						</Formik>
