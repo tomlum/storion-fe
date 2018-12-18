@@ -1,7 +1,6 @@
 import React from "react"
 import moment from "moment"
 import styled from "styled-components"
-import pt from "prop-types"
 import Tag from "components/Tag"
 
 const Headline = styled.h2`
@@ -16,7 +15,16 @@ const Ellipsis = styled.div`
 	text-overflow: ellipsis;
 	font-size: 10px;
 `
+const Edit = styled.div.attrs({
+	className: "edit clickable"
+})`
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	color: #bbb;
+`
 const ArticleBody = styled.div`
+	position: relative;
 	border: solid 2px #8991d9;
 	border-radius: 2px;
 	padding: 10px;
@@ -24,7 +32,6 @@ const ArticleBody = styled.div`
 	margin-top: -1px;
 	margin-bottom: -1px;
 	font-family: Roboto;
-
 `
 const SubContent = styled.div`
 	display: flex;
@@ -83,32 +90,26 @@ function trimURL(url) {
 	return url
 }
 
-export default function ArticleBlock({ article }) {
+export default function ArticleBlock({ article, onEdit }) {
 	return (
 		<ArticleBody>
 			<Anchor href={article.link}>
-				<Headline>
-					{article.headline}
-					{article.headline}
-				</Headline>
+				<Headline>{article.id} {article.headline}</Headline>
 			</Anchor>
+			<Edit onClick={onEdit}>Edit</Edit>
 			<SubContent>
-					<SubText>
-				<Anchor href={article.link}>
+				<SubText>
+					<Anchor href={article.link}>
 						<Ellipsis>
 							<p>[ {moment(article.time).format("ll")} ]</p>
 							<i>{trimURL(article.link)}</i>
 						</Ellipsis>
-				</Anchor>
-					</SubText>
+					</Anchor>
+				</SubText>
 				<TagSpace>
 					<Tag flush>I'M A TAG I'M A TAG I'M A TAG</Tag>
 				</TagSpace>
 			</SubContent>
 		</ArticleBody>
 	)
-}
-
-ArticleBlock.propTypes = {
-	story: pt.object
 }

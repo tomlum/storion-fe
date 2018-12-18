@@ -68,6 +68,7 @@ const TagList = styled.div`
   border-bottom: 0px;
   min-height: 53px;
   background-color: ${colors.lightPurple};
+  box-shadow: inset 0px 0px 13px 4px #222;
 `
 const SearchContainer = styled.div`
   flex: 1;
@@ -168,6 +169,17 @@ class Desk extends Component {
     return this.state.newArticleTags[tag]
   }
 
+  editArticle = article => {
+    this.setState({
+      editedArticle: {
+        headline: article.headline,
+        link: article.link,
+        id: article.id
+      },
+      newArticleOpen: true
+    })
+  }
+
   render() {
     let originalLength = this.props.articles.length
     let articleArray = this.props.articles
@@ -201,6 +213,7 @@ class Desk extends Component {
                 />
               </SearchContainer>
               <SubmitArticle
+                editedArticle={this.state.editedArticle}
                 open={this.state.newArticleOpen}
                 onClick={this.toggleOpenNewArticle}
                 tagList={Object.keys(this.state.newArticleTags).sort()}
@@ -238,7 +251,13 @@ class Desk extends Component {
             </NoResults>
           ) : (
             articleArray.map(article => (
-              <ArticleBlock key={article.id} article={article} />
+              <ArticleBlock
+                onEdit={() => {
+                  this.editArticle(article)
+                }}
+                key={article.id}
+                article={article}
+              />
             ))
           )}
         </div>
