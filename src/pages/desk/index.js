@@ -106,6 +106,10 @@ const NoResults = styled.h1`
   text-align: center;
 `
 
+function articleCompare(a, b) {
+  return b.createdTime - a.createdTime
+}
+
 class Desk extends Component {
   static propTypes = {
     articles: pt.array,
@@ -116,7 +120,7 @@ class Desk extends Component {
     tagsOpen: false,
     filteredTags: [],
     newArticleTags: [],
-    newArticleOpen: true
+    newArticleOpen: false
   }
 
   componentDidMount() {
@@ -185,6 +189,7 @@ class Desk extends Component {
   render() {
     let originalLength = this.props.articles.length
     let articleArray = this.props.articles
+    articleArray.sort(articleCompare)
     let noFilters = Object.keys(this.state.filteredTags) < 1
     if (articleArray) {
       if (!noFilters) {
@@ -256,8 +261,9 @@ class Desk extends Component {
               <ArticleBlock
                 onEdit={() => {
                   this.editArticle(article)
-                  this.setState({newArticleTags: article.tags})
+                  this.setState({ newArticleTags: article.tags })
                 }}
+                edited={article.id === this.state.editedArticle}
                 key={article.id}
                 article={article}
               />

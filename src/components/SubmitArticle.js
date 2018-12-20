@@ -132,7 +132,7 @@ function fillDate(n, length) {
 	return n
 }
 
-function formatDate(day, month, year) {
+function formatDate(year, month, day) {
 	return `${fillDate(year, 4)}-${fillDate(month, 2)}-${fillDate(day, 2)}`
 }
 
@@ -152,8 +152,18 @@ const articleSchema = Yup.object().shape({
 			} else if (!this.parent.month || !this.parent.day || !this.parent.year) {
 				return false
 			} else {
+				console.log(
+					this.parent.year,
+					this.parent.month,
+					this.parent.day,
+					moment(
+						formatDate(this.parent.year, this.parent.month, this.parent.day),
+						"YYYY-MM-DD",
+						true
+					)
+				)
 				return moment(
-					formatDate(this.parent.day, this.parent.month, this.parent.year),
+					formatDate(this.parent.year, this.parent.month, this.parent.day),
 					"YYYY-MM-DD",
 					true
 				).isValid()
@@ -181,15 +191,20 @@ class CheckEditedArticle extends Component {
 			((!prevProps.article && this.props.article) ||
 				prevProps.article.id !== this.props.article.id)
 		) {
-			const date = moment(this.props.article.time)
 			this.props.linkRef.current.selectionEnd = 0
 			this.props.setValues({
 				...this.props.values,
 				link: this.props.article.link,
 				headline: this.props.article.headline,
-				day: date.format("DD"),
-				month: date.format("MM"),
-				year: date.format("YYYY")
+				day: this.props.article.time.isValid()
+					? this.props.article.time.format("DD")
+					: "",
+				month: this.props.article.time.isValid()
+					? this.props.article.time.format("MM")
+					: "",
+				year: this.props.article.time.isValid()
+					? this.props.article.time.format("YYYY")
+					: ""
 			})
 			this.props.linkRef.current.focus()
 		}
@@ -246,23 +261,19 @@ class SubmitArticle extends Component {
 								validDate: "",
 								newTag: ""
 							}}
-							initialValues={{
-								day: 16,
-								headline: "This is a headline",
-								link: "https://jaredpalmer.com/formik",
-								month: 12,
-								newTag: "",
-								time: "",
-								validDate: "",
-								year: 2018
-							}}
 							validationSchema={articleSchema}
 							onSubmit={(values, actions) => {
 								values.tags = [
 									...this.props.tagList,
 									...this.state.newTagList
 								].sort(string.compare)
-								values.time = formatDate(values.month, values.day, values.year)
+								values.time =
+									!values.month && !values.day && !values.year
+										? null
+										: formatDate(values.year, values.month, values.day)
+								if (this.props.editedArticle && this.props.editedArticle.id) {
+									values.id = this.props.editedArticle.id
+								}
 								this.props.postArticle(values)
 							}}
 						>
