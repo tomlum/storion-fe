@@ -111,6 +111,7 @@ const SuggestTagText = styled.p`
 `
 const TagList = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	margin-left: 90px;
 `
 
@@ -164,6 +165,9 @@ const articleSchema = Yup.object().shape({
 
 const SubmitButtonRow = styled.div`
 	text-align: right;
+	button {
+		margin-left: 15px;
+	}
 `
 
 const Space = styled.div`
@@ -173,11 +177,21 @@ const Space = styled.div`
 class CheckEditedArticle extends Component {
 	componentDidUpdate(prevProps) {
 		if (
-			(!prevProps.article && this.props.article) ||
-			prevProps.article.id !== this.props.article.id
+			this.props.article &&
+			((!prevProps.article && this.props.article) ||
+				prevProps.article.id !== this.props.article.id)
 		) {
+			const date = moment(this.props.article.time)
+			this.props.linkRef.current.selectionEnd = 0
+			this.props.setValues({
+				...this.props.values,
+				link: this.props.article.link,
+				headline: this.props.article.headline,
+				day: date.format("DD"),
+				month: date.format("MM"),
+				year: date.format("YYYY")
+			})
 			this.props.linkRef.current.focus()
-			this.props.setValues(this.props.article)
 		}
 	}
 
@@ -212,7 +226,9 @@ class SubmitArticle extends Component {
 	render() {
 		return (
 			<Body>
-				<FormButton onClick={this.props.onClick}>+ New Article</FormButton>
+				<FormButton onClick={this.props.onClick}>
+					{this.props.editedArticle ? "Edit Article" : "+ New Article"}
+				</FormButton>
 				<AnimateHeight
 					duration={300}
 					easing="ease-in-out"
@@ -256,6 +272,7 @@ class SubmitArticle extends Component {
 										<FormRow>
 											<CheckEditedArticle
 												article={this.props.editedArticle}
+												values={values}
 												setValues={setValues}
 												linkRef={this.ref.link}
 											/>
@@ -455,14 +472,14 @@ class SubmitArticle extends Component {
 										)}
 
 										<SubmitButtonRow>
+											{this.props.editedArticle && <button>Cancel Edit</button>}
 											<button
 												type="submit"
 												onClick={() => {
 													this.setState({ triedToSubmit: true })
 												}}
 											>
-												{" "}
-												Submit
+												{this.props.editedArticle ? "Save Edit" : "Submit"}
 											</button>
 										</SubmitButtonRow>
 									</FormFields>

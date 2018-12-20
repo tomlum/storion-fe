@@ -171,12 +171,14 @@ class Desk extends Component {
 
   editArticle = article => {
     this.setState({
-      editedArticle: {
-        headline: article.headline,
-        link: article.link,
-        id: article.id
-      },
+      editedArticle: article,
       newArticleOpen: true
+    })
+  }
+
+  cancelEdit = () => {
+    this.setState({
+      editedArticle: null
     })
   }
 
@@ -254,6 +256,7 @@ class Desk extends Component {
               <ArticleBlock
                 onEdit={() => {
                   this.editArticle(article)
+                  this.setState({newArticleTags: article.tags})
                 }}
                 key={article.id}
                 article={article}

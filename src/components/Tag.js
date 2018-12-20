@@ -46,6 +46,8 @@ const TagBody = styled.div.attrs({
 const TagText = styled.div`
 	color: hsl(${({ hue }) => hue}, 100%, 80%);
 	display: flex;
+	justify-content: flex-end;
+  flex-grow: 1;
 	align-items: center;
 	height: ${height}px;
 	overflow: hidden;
@@ -74,7 +76,10 @@ export default class Tag extends PureComponent {
 
 	render() {
 		const hue = this.getHue()
-		const thickness = lineThickness + (this.props.active ? 3 : 0)
+		let thickness = lineThickness + (this.props.active ? 3 : 0)
+		if(this.props.articleActive){
+			thickness = lineThickness - 1
+		}
 		return (
 			<TagBody flush={this.props.flush} {...this.props} thickness={thickness}>
 				<svg>
