@@ -94,7 +94,7 @@ export default function ArticleBlock({ article, onEdit }) {
 	return (
 		<ArticleBody>
 			<Anchor href={article.link}>
-				<Headline>{article.id} {article.headline}</Headline>
+				<Headline>{article.headline}</Headline>
 			</Anchor>
 			<Edit onClick={onEdit}>Edit</Edit>
 			<SubContent>
@@ -107,7 +107,9 @@ export default function ArticleBlock({ article, onEdit }) {
 					</Anchor>
 				</SubText>
 				<TagSpace>
-					<Tag flush>I'M A TAG I'M A TAG I'M A TAG</Tag>
+				{article.tags &&
+					<Tag flush>{Object.keys(article.tags)[0]}</Tag>
+				}
 				</TagSpace>
 			</SubContent>
 		</ArticleBody>
