@@ -68,6 +68,8 @@ function* fetchDeskArticlesSaga({ id }) {
     let articleList = []
     articles.forEach(article => {
       articleList = article.tags
+      article.time = moment(article.time)
+      article.createdTime = moment(article.createdTime)
       article.tags = {}
       articleList.forEach(tag => {
         article.tags[tag] = true
@@ -101,6 +103,7 @@ function* postArticleSaga(action) {
     yield call(expectUser)
     yield put(loadingStart)
     const data = {
+      id: action.article.id,
       headline: action.article.headline,
       tags: action.article.tags,
       link: action.article.link,

@@ -1,13 +1,18 @@
 import React from "react"
-import moment from "moment"
 import styled from "styled-components"
-import Tag from "components/Tag"
+import { MiniTag } from "components/Tag"
+import { string } from "utils"
 
 const Headline = styled.h2`
+	flex-grow: 1;
+	flex-shrink: 1;
 	color: #fff;
 	margin: 0px;
 	font-size: 17px;
 	margin-bottom: 5px;
+`
+const HeadlineRow = styled.div`
+	display: flex;
 `
 const Ellipsis = styled.div`
 	overflow: hidden;
@@ -18,17 +23,12 @@ const Ellipsis = styled.div`
 const Edit = styled.div.attrs({
 	className: "edit clickable"
 })`
-	position: absolute;
-	right: 5px;
-	top: 5px;
 	color: #bbb;
 `
 const ArticleBody = styled.div`
-	position: relative;
 	border: solid 2px #8991d9;
 	border-radius: 2px;
 	padding: 10px;
-	padding-right: 0px;
 	margin-top: -1px;
 	margin-bottom: -1px;
 	font-family: Roboto;
@@ -46,18 +46,16 @@ const SubContent = styled.div`
 		display: inline;
 		color: #bbb;
 		font-size: 13px;
+		margin-right: 5px;
 	}
 
 	i {
 		display: inline;
 		color: #bbb;
 		font-size: 10px;
-		margin-left: 5px;
 	}
 `
 const SubText = styled.div`
-	flex-grow: 1;
-	flex-shrink: 1;
 	flex-basis: 100%;
 	min-width: 0%;
 	max-width: 100%;
@@ -65,8 +63,14 @@ const SubText = styled.div`
 const TagSpace = styled.div`
 	flex-basis: 500px;
 	flex-shrink: 5;
-	min-width: 10px;
+	flex-wrap: wrap;
+	max-height: 35px;
+	min-width: 20px;
 	max-width: 150px;
+	justify-content: flex-end;
+	display: flex;
+	margin-top: -10px;
+	overflow: hidden;
 `
 
 const Anchor = styled.a.attrs({
@@ -90,27 +94,35 @@ function trimURL(url) {
 	return url
 }
 
+// <Edit onClick={onEdit}>Edit</Edit>
 export default function ArticleBlock({ article, onEdit }) {
 	return (
 		<ArticleBody>
-			<Anchor href={article.link}>
-				<Headline>{article.headline}</Headline>
-			</Anchor>
-			<Edit onClick={onEdit}>Edit</Edit>
+			<HeadlineRow>
+				<Anchor href={article.link}>
+					<Headline>
+						{article.headline}
+						{article.headline}
+					</Headline>
+				</Anchor>
+				<TagSpace>
+					{Object.keys(article.tags)
+						.sort(string.compare)
+						.map(tag => (
+							<MiniTag key={tag}>{tag}</MiniTag>
+						))}
+				</TagSpace>
+			</HeadlineRow>
 			<SubContent>
 				<SubText>
 					<Anchor href={article.link}>
 						<Ellipsis>
-							<p>[ {moment(article.time).format("ll")} ]</p>
+							{article.time.isValid() && <p>[ {article.time.format("ll")} ]</p>}
 							<i>{trimURL(article.link)}</i>
 						</Ellipsis>
 					</Anchor>
 				</SubText>
-				<TagSpace>
-				{article.tags &&
-					<Tag flush>{Object.keys(article.tags)[0]}</Tag>
-				}
-				</TagSpace>
+				<Edit onClick={onEdit}>Edit</Edit>
 			</SubContent>
 		</ArticleBody>
 	)
