@@ -21,7 +21,7 @@ function* fetchStoriesSaga(action) {
     yield put(setStore(FETCH_STORIES.success, { stories: stories.data }))
     yield put(loadingFinish)
   } catch (e) {
-    yield put(errorStore(FETCH_STORIES.failure, e.response.data))
+    yield put(errorStore(FETCH_STORIES.failure, e))
     yield put(loadingFinish)
   }
 }
@@ -45,7 +45,7 @@ function* fetchStoryArticlesSaga({ id }) {
     )
     yield put(loadingFinish)
   } catch (e) {
-    yield put(errorStore(FETCH_STORY_ARTICLES.failure, e.response.data))
+    yield put(errorStore(FETCH_STORY_ARTICLES.failure, e))
     yield put(loadingFinish)
   }
 }
@@ -84,7 +84,7 @@ function* fetchDeskArticlesSaga({ id }) {
     )
     yield put(loadingFinish)
   } catch (e) {
-    yield put(errorStore(FETCH_DESK_ARTICLES.failure, e.response.data))
+    yield put(errorStore(FETCH_DESK_ARTICLES.failure, e))
     yield put(loadingFinish)
   }
 }
@@ -113,7 +113,7 @@ function* postArticleSaga(action) {
     yield put(spaction(POST_ARTICLE.success))
     yield put(spaction(FETCH_DESK_ARTICLES.request))
   } catch (e) {
-    yield put(errorStore(POST_ARTICLE.failure, e.response.data))
+    yield put(errorStore(POST_ARTICLE.failure, e))
     yield put(loadingFinish)
   }
 }

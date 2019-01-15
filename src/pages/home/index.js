@@ -1,9 +1,20 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import pt from "prop-types"
-import StoryBlock from "../../components/StoryBlock"
+import styled from "styled-components"
+// import StoryBlock from "../../components/StoryBlock"
+import About from "pages/about"
 import { fetchStories } from "../../sagas/stories"
 import { feedSpatch } from "../../sagas/utils"
+import { colors } from "styles"
+
+const Text = styled.div`
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  font-size: 20px;
+  color: ${colors.rose};
+`
 
 class Home extends Component {
   static propTypes = {
@@ -11,25 +22,34 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchStories()
+    if (!this.props.stories) {
+      // this.props.fetchStories()
+    }
   }
 
   render() {
-    return (
-      <div>
-        {this.props.stories &&
-          this.props.stories.map(story => <StoryBlock story={story} />)}
-      </div>
-    )
+    if (this.props.user && this.props.user.null) {
+      return <About />
+    } else {
+      return (
+        <div>
+          {
+            // this.props.stories &&
+            // this.props.stories.map(story => <StoryBlock story={story} />)
+          }
+          <Text>Coming Soon</Text>
+        </div>
+      )
+    }
   }
 }
 
-const storeToProps = ({ stories }) => ({
-  stories
+const storeToProps = ({ user }) => ({
+  user
 })
 
 const actionsToProps = feedSpatch({
-  fetchStories
+  // fetchStories
 })
 
 export default connect(

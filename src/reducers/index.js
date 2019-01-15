@@ -1,14 +1,19 @@
 import deepmerge from "deepmerge"
+import moment from "moment"
 
 let defaultState = {
   user: null,
   test: 1,
   desk: {
-    articles: []
+    articles: null,
+    tagsOpen: false,
+    filteredTags: [],
+    newArticleTags: [],
+    newArticleOpen: false
   }
 }
 
-if (process.env.REACT_APP_DEBUG_API) {
+if (process.env.REACT_APP_DEBUG_API === "TRUE") {
   defaultState = {
     user: {
       given_name: "Tom",
@@ -45,7 +50,7 @@ if (process.env.REACT_APP_DEBUG_API) {
           },
           link:
             "http://www.vulture.com/2018/10/the-making-of-rockstar-games-red-dead-redemption-2.html",
-          time: "2018-11-22T21:31:41.053Z",
+          time: moment("2018-11-22T21:31:41.053Z"),
           storyID: 1
         },
         {
@@ -55,7 +60,7 @@ if (process.env.REACT_APP_DEBUG_API) {
           tags: { Rockstar: 1 },
           link:
             "https://kotaku.com/we-were-working-100-hour-weeks-red-dead-redemption-2-h-1829758281",
-          time: "2018-11-22T21:31:41.053Z",
+          time: moment("2018-11-22T21:31:41.053Z"),
           storyID: 1
         },
         {
@@ -65,7 +70,7 @@ if (process.env.REACT_APP_DEBUG_API) {
           tags: { Rockstar: 1 },
           link:
             "https://www.kotaku.com.au/2018/10/red-dead-redemption-2-developers-speak-out-after-rockstar-lifts-social-media-ban/",
-          time: "2018-11-22T21:31:41.053Z",
+          time: moment("2018-11-22T21:31:41.053Z"),
           storyID: 1
         }
       ],

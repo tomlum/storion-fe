@@ -28,48 +28,91 @@
 	"buffers":
 	[
 		{
-			"file": "src/sagas/stories.js",
+			"contents": "kymograph\n\nhomologous vs analgoous\n\nThe Transcription-Translation Feedback Loop\n\ntranscription-independent oscillation\n\n\n\nThe circadian program is regulated at both a central and peripheral level. In mammals, the central pacemaker is located in the suprachiasmatic nucleus (SCN) of the hypothalamus\n\n\n\nEscapement vs TTFL\n\n\nunbold https://en.wikipedia.org/wiki/Circadian_clock\ngrandfather clock?\n\n\nhttps://www.twitch.tv/aws",
 			"settings":
 			{
-				"buffer_size": 3219,
+				"buffer_size": 422,
+				"line_ending": "Unix",
+				"name": "kymograph"
+			}
+		},
+		{
+			"file": "src/pages/home/index.js",
+			"settings":
+			{
+				"buffer_size": 742,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/components/SubmitArticle.js",
+			"file": "src/sagas/auth.js",
 			"settings":
 			{
-				"buffer_size": 11374,
+				"buffer_size": 895,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 44 files for \"authGet\"\n\n/Users/Hi/Desktop/storion-fe/src/auth.js:\n   81  }\n   82  \n   83: export async function authGet(path) {\n   84    return axios.get(process.env.REACT_APP_API_URL+path, authHeader())\n   85  }\n\n/Users/Hi/Desktop/storion-fe/src/sagas/stories.js:\n    1  import { all, put, takeLeading, call } from \"redux-saga/effects\"\n    2: import { authGet, authPost } from \"auth\"\n    3  import { expectUser } from \"./auth\"\n    4  import { setStore, errorStore, spatch, spaction, actionEnum } from \"./utils\"\n    .\n   18      yield call(expectUser)\n   19      yield put(loadingFinish)\n   20:     const stories = yield authGet(`/stories`)\n   21      yield put(setStore(FETCH_STORIES.success, { stories: stories.data }))\n   22      yield put(loadingFinish)\n   ..\n   40      yield call(expectUser)\n   41      yield put(loadingStart)\n   42:     const articles = yield authGet(`/stories/${id}`)\n   43      yield put(\n   44        setStore(FETCH_STORY_ARTICLES.success, { articles: articles.data })\n   ..\n   63      yield call(expectUser)\n   64      yield put(loadingStart)\n   65:     const articlesRequest = yield authGet(`/desk`)\n   66      const articles = articlesRequest.data\n   67      const tags = {}\n\n5 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 1241,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "src/auth.js",
+			"settings":
+			{
+				"buffer_size": 2289,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 4072,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "a\n\nloading and error screens",
+			"file": ".env.development",
 			"settings":
 			{
-				"buffer_size": 28,
-				"line_ending": "Unix",
-				"name": "a"
+				"buffer_size": 352,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "on finishing month type, focus on next",
+			"file": "config/env.js",
 			"settings":
 			{
-				"buffer_size": 38,
-				"line_ending": "Unix",
-				"name": "on finishing month type, focus on next"
+				"buffer_size": 3522,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "IMG_0349.MOV\n\nx on right side of search to cancel it\n\nseparate search phrases by commas\n\ntype linkit.org/url\n\nAlso load the \n\nthere is no voter fraud\ntrumps lies\n\nim going to spend that remaining time freaking out about the lack of time\n\nselect font for your initials",
+			"contents": "IMG_0349.MOV\n\nauthenticating page/loading icon\nfavicon\n\nsin wave loading screen\n\nbacktick prevent form appearign in tag\n\nupdate defaultstate to include momentified data\n\n\nA better feed, a way to sift it, and a way to make real stories\n\nx on right side of search to cancel it\n\nseparate search phrases by commas\n\nreplace formik lol\n\ntype linkit.org/url\n\nAlso load the \n\nthere is no voter fraud\ntrumps lies\n\nim going to spend that remaining time freaking out about the lack of time\n\nselect font for your initials",
 			"settings":
 			{
-				"buffer_size": 267,
+				"buffer_size": 509,
 				"line_ending": "Unix",
 				"name": "IMG_0349.MOV"
+			}
+		},
+		{
+			"contents": "\nbranching exploring path, one path through many global\n\ncooperation\nall root together\n\npractice is the default\n\nactions like swing up to confirm are so fun\n\nat the end of each roudn can bank your caps or not\nor bank some\nor smelt them into something?\n\naws error.html\n\ngood story\nhttps://twitter.com/insideclimate/status/1024717497713520640\n\n\nthe ultimate pattern is personhood",
+			"settings":
+			{
+				"buffer_size": 377,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -121,12 +164,20 @@
 		"selected_items":
 		[
 			[
-				"remove",
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
 				"Package Control: Remove Package"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"color high",
@@ -197,10 +248,6 @@
 				"SublimeLinter: Enable Debug Mode"
 			],
 			[
-				"package",
-				"Package Control: List Packages"
-			],
-			[
 				"unmana",
 				"Package Control: List Unmanaged Packages"
 			],
@@ -234,44 +281,66 @@
 	"expanded_folders":
 	[
 		"/Users/Hi/Desktop/storion-fe",
-		"/Users/Hi/Desktop/storion-fe/public",
+		"/Users/Hi/Desktop/storion-fe/config",
+		"/Users/Hi/Desktop/storion-fe/scripts",
 		"/Users/Hi/Desktop/storion-fe/src",
 		"/Users/Hi/Desktop/storion-fe/src/components",
-		"/Users/Hi/Desktop/storion-fe/src/reducers",
+		"/Users/Hi/Desktop/storion-fe/src/pages",
+		"/Users/Hi/Desktop/storion-fe/src/pages/desk",
+		"/Users/Hi/Desktop/storion-fe/src/pages/home",
 		"/Users/Hi/Desktop/storion-fe/src/sagas"
 	],
 	"file_history":
 	[
-		"/Users/Hi/Desktop/storion-fe/src/utils.js",
-		"/Users/Hi/Desktop/storion-fe/src/auth.js",
-		"/Users/Hi/Desktop/storion-fe/node_modules/redux-saga/dist/redux-saga-effects.dev.cjs.js",
-		"/Users/Hi/Desktop/storion-fe/config/webpack.config.dev.js",
-		"/Users/Hi/Desktop/storion-fe/src/components/Tag.js",
-		"/Users/Hi/Desktop/storion-fe/src/components/SubmitArticle.js",
-		"/Users/Hi/Desktop/storion-fe/src/pages/desk/index.js",
-		"/Users/Hi/Desktop/storion-fe/src/index.css",
-		"/Users/Hi/Desktop/storion-fe/src/components/ArticleBlock.js",
-		"/Users/Hi/Desktop/storion-fe/src/styles.js",
 		"/Users/Hi/Desktop/storion-fe/.env",
+		"/Users/Hi/Desktop/storion-fe/config/webpack.config.dev.js",
+		"/Users/Hi/Desktop/storion-fe/.env.staging",
 		"/Users/Hi/Desktop/storion-fe/package.json",
-		"/Users/Hi/Desktop/storion-fe/src/sagas/stories.js",
+		"/Users/Hi/Desktop/storion-fe/config/webpack.config.prod.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/desk/index.js",
+		"/Users/Hi/Desktop/storion-fe/scripts/build-staging.js",
+		"/Users/Hi/Desktop/storion-fe/build.js",
+		"/Users/Hi/Desktop/storion-fe/config/webpack.config.staging.js",
+		"/Users/Hi/Desktop/storion-fe/config/paths.js",
+		"/Users/Hi/Desktop/storion-fe/config/env.js",
+		"/Users/Hi/Desktop/storion-fe/.env.development",
+		"/Users/Hi/Desktop/storion-fe/src/auth.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/index.js",
 		"/Users/Hi/Desktop/storion-fe/src/reducers/index.js",
-		"/Users/Hi/Desktop/storion-fe/src/components/NewArticle.js",
+		"/Users/Hi/Desktop/storion-fe/src/styles.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/SubmitArticle.js",
 		"/Users/Hi/Desktop/storion-fe/src/components/Nav.js",
-		"/Users/Hi/Desktop/storion-fe/src/sagas/utils.js",
-		"/Users/Hi/Desktop/storion-fe/src/pages/Routes.js",
+		"/Users/Hi/Desktop/storion-fe/build/index.html",
+		"/Users/Hi/Desktop/storion-fe/.gitignore",
+		"/etc/shells",
+		"/Users/Hi/Desktop/storion-fe/scripts/build.js",
+		"/Users/Hi/Desktop/storion-fe/src/components/Tag.js",
+		"/Users/Hi/Desktop/storion-fe/node_modules/idtoken-verifier/webpack.config.js",
+		"/Users/Hi/Desktop/storion-fe/scripts/stats.js",
+		"/Users/Hi/Desktop/storion-fe/stats.json",
+		"/Users/Hi/Desktop/storion-fe/webpack-stats.json",
+		"/Users/Hi/Desktop/storion-fe/src/components/ArticleBlock.js",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/stories.js",
+		"/Users/Hi/Desktop/storion-fe/src/utils.js",
+		"/Users/Hi/Desktop/storion-fe/misc/misc.notes",
 		"/Users/Hi/Desktop/storion-fe/src/index.js",
+		"/Users/Hi/Desktop/storion-fe/src/main.css",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/utils.js",
+		"/Users/Hi/Desktop/test.html",
+		"/Users/Hi/Desktop/storion-fe/src/sagas/loading.js",
+		"/Users/Hi/Desktop/storion-fe/storion-fe.sublime-project",
+		"/Users/Hi/Desktop/storion-fe/node_modules/redux-saga/dist/redux-saga-effects.dev.cjs.js",
+		"/Users/Hi/Desktop/storion-fe/src/index.css",
+		"/Users/Hi/Desktop/storion-fe/src/components/NewArticle.js",
+		"/Users/Hi/Desktop/storion-fe/src/pages/Routes.js",
 		"/Users/Hi/Desktop/storion-fe/node_modules/cssom/lib/StyleSheet.js",
 		"/Users/Hi/Desktop/storion-be/,",
 		"/Users/Hi/Desktop/storion-fe/src/pages/desk/TagList.js",
 		"/Users/Hi/Library/Application Support/Sublime Text 3/Packages/JsPrettier/JsPrettier.sublime-settings",
-		"/Users/Hi/Desktop/storion-fe/misc/misc.notes",
-		"/Users/Hi/Desktop/storion-fe/.gitignore",
 		"/Users/Hi/Desktop/storion-fe/.babelrc",
 		"/Users/Hi/Desktop/storion-fe/src/pages/new-chain/index.js",
 		"/Users/Hi/Desktop/storion-fe/src/pages/story/index.js",
 		"/Users/Hi/Desktop/storion-fe/src/pages/home/index.js",
-		"/Users/Hi/Desktop/storion-fe/src/sagas/index.js",
 		"/Users/Hi/Desktop/storion-fe/src/pages/box/index.js",
 		"/Users/Hi/Desktop/storion-fe/src/sagas/auth.js",
 		"/Users/Hi/Desktop/storion-fe/src/sagas/box.js",
@@ -285,7 +354,6 @@
 		"/Users/Hi/Desktop/storion-fe/src/sagas/story-sagas.js",
 		"/Users/Hi/Desktop/storion-fe/src/sagas/storySagas.js",
 		"/Users/Hi/Desktop/storion-fe/src/sagas/actions.js",
-		"/Users/Hi/Desktop/storion-fe/config/env.js",
 		"/Users/Hi/Desktop/storion-fe/src/.env",
 		"/Users/Hi/Desktop/storion-fe/src/pages/authorizing/index.js",
 		"/Users/Hi/Desktop/storion-fe/src/pages/authorizing.js",
@@ -351,25 +419,7 @@
 		"/Users/Hi/Desktop/Projects/No-Answer/main.lua",
 		"/Users/Hi/Desktop/Projects/Monkey/src/Pixel.jsx",
 		"/Users/Hi/Desktop/Projects/Monkey/Pixel.jsx",
-		"/Users/Hi/Desktop/Projects/Monkey/package.json",
-		"/Users/Hi/Desktop/Projects/Monkey/.eslintrc",
-		"/Users/Hi/Desktop/Projects/Monkey/node_modules/babel-polyfill/dist/polyfill.js",
-		"/Users/Hi/Desktop/SuperLuminauts/controls.lua",
-		"/Users/Hi/Desktop/SuperLuminauts/player.lua",
-		"/Users/Hi/Desktop/SuperLuminauts/main.lua",
-		"/Users/Hi/Desktop/SuperLuminauts/config.lua",
-		"/Users/Hi/Desktop/SuperLuminauts/menus.lua",
-		"/Users/Hi/Desktop/number.js",
-		"/Users/Hi/Desktop/tomlum.github.io/scripts/{",
-		"/Users/Hi/Desktop/tomlum.github.io/countSheep.js",
-		"/Users/Hi/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/Default (OSX).sublime-keymap",
-		"/Users/Hi/Desktop/tomlum.github.io/pixi.min.js",
-		"/Users/Hi/Desktop/SuperLuminauts/assets/sounds/dodge.wav",
-		"/Users/Hi/Desktop/SuperLuminauts/missions.lua",
-		"/Users/Hi/Desktop/SuperLuminauts/enviro.lua",
-		"/Users/Hi/Desktop/SuperLuminauts/gamemodes.lua",
-		"/Users/Hi/Desktop/Projects/complexity",
-		"/Users/Hi/Desktop/tomlum.github.io/bla.html"
+		"/Users/Hi/Desktop/Projects/Monkey/package.json"
 	],
 	"find":
 	{
@@ -380,6 +430,7 @@
 		"height": 132.0,
 		"where_history":
 		[
+			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map, -*/build/*, -*/scripts/*, -stats.json",
 			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map, -*/build/*, -*/scripts/*",
 			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map, -*/build/*",
 			"-*/node_modules/*, -*.md, -package.json, -package-lock.json, -*.log, -*.lock, -*.map -*/build/*",
@@ -412,134 +463,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"authPost",
-			"authget",
-			"authpush",
-			"console.log",
-			"articleTags",
-			"\",\"",
-			"article.tags.split",
-			"$",
-			"/$/",
-			"stringCompare",
-			"module.exports",
-			"values.",
-			"TagList",
-			"tagList",
-			"TagList",
-			"tagList",
-			"moment",
-			"relative",
-			"articledata",
-			"sortstring",
-			"sortstrings",
-			"53px",
-			"tagList",
-			"TagList",
-			"tagList",
-			"TagList",
-			"height",
-			"tagList",
-			"TagList",
-			"tagList",
-			"TagList",
-			"taglist",
-			"SearchContainer",
-			"Options",
-			"tagList",
-			"TagList",
-			"tagList",
-			"TagList",
-			"tagList",
-			".length > 0",
-			"REACT_APP_API_URL",
-			"authPost",
+			"authGet",
 			"expectUser",
-			"post_article",
-			"postArticle",
-			": ",
-			"submit",
+			"user",
+			"desk",
+			"console.log",
+			"NODE_ENV",
+			"NODE_ENV_FILE",
+			"NODE_ENV",
+			"dotenvFiles",
+			".NODE_ENV",
+			"dotenv",
+			".env",
+			"dotenv",
+			"staging",
+			"production",
+			"webpackConfigProd",
+			"webpack.config.staging",
+			"webpack.config.",
+			"var BundleAnalyzerPlugin = require(\"webpack-bundle-analyzer\")\n  .BundleAnalyzerPlugin\n\n\nif (process.env.NODE)\nconst webpackConfigProd = require(\"../config/webpack.config.prod\")\n\nwebpackConfigProd.plugins.push(\n  new BundleAnalyzerPlugin({\n    analyzerMode: \"static\",\n    reportFilename: \"report.html\",\n  })\n)\n\nrequire(\"./build\")",
+			"webpack.config.",
+			"http://localhost:3000",
+			"/.env",
+			".env",
+			"getClientEnvironment",
+			"development",
+			"getClientEnvironment",
+			"dotenvFiles",
+			"production",
+			"Production",
+			"production",
+			"prod",
+			"production",
+			"REACT_APP_AUTH0_RETURN_TO",
+			"_AUTH0_AUDIENCE",
+			"REACT_APP_DEV_AUTH0_AUDIENCE",
+			"REACT_APP_STAGING_AUTH0_AUDIENCE",
+			"production",
+			"node_env",
+			"config.prod",
+			"production",
+			"REACT_APP_AUTH0_REDIRECT_URI",
+			"localhost",
+			"\"production\"",
+			"REACT_APP_AUTH0_RETURN_TO",
+			"REACT_APP_DEBUG_API",
+			"localhost:3000",
+			"REACT_APP_DEBUG_API",
+			"moment",
+			"edit",
+			"titlebody",
+			"toggleTag",
+			"Search",
+			"search",
+			"Search",
+			"32px",
+			"search",
+			"32px",
+			"height: ",
+			"toggleTag",
+			"no tags",
+			"TopRow",
+			"space",
+			"Row",
+			"row",
 			"FormButton",
-			"onSubmit",
-			"submit",
-			"nextRef",
-			"nextref",
-			"console.log",
-			"nextref",
-			"onKeyPress",
-			"props",
-			".select",
-			".select()",
-			"select",
-			"focusSelect",
-			"select",
-			"FormField",
-			"this.refs",
-			"ref",
-			"newArticleOpen",
-			"toggleOpenNewArticle",
-			"open",
-			"this.refs",
-			"yearRef",
-			"innerref",
-			"focus",
-			"ref",
-			"dayRef",
-			"FormField",
-			"e.key === \"Enter\"",
-			"enter",
-			"onKeyPress",
-			"FormField",
-			"postArticle",
-			"stringCompare",
-			"stringcompare",
-			"FormField",
-			"FormFields",
-			"innerRef",
-			"innerref",
-			"headline",
-			"currenturl",
-			"\"\"",
-			" \"\"",
-			":",
-			"setvalue",
-			"console.log",
-			"submit",
-			"date",
-			"Date",
-			"date",
-			"fillDate",
-			"triedToSubmit",
-			"fillDate",
-			"true",
-			"console.log",
-			"number",
-			"string",
-			"ErrorText",
-			"isSubmitting",
-			"touched",
-			"status",
-			"values",
-			"setValues",
-			"setvalues",
-			"console.log",
-			"articleSchema",
+			"Search",
+			"FormButton",
+			"Search",
+			"FormButton",
+			"search",
+			"formbutton",
+			"row",
+			"FormButton",
+			"new article",
+			"lightPurple",
+			"lighterPurple",
+			"FormButton",
+			"transition",
+			"height",
+			"navbody",
+			"NavButton",
+			"NavTab",
+			"river",
+			"desk",
+			"time:",
+			"moment",
+			"storion",
+			"moment",
+			"webpack",
+			"IgnorePlugin",
+			"plugins",
+			"test",
+			"lodash",
+			"submitro",
+			"generateStatsFile",
+			"BundleAnalyzerPlugin",
+			"lodash",
+			"UglifyJsPlugin",
+			"import moment",
+			"time: ",
+			"time = ",
+			"article",
+			"moment",
+			"search",
+			"Search",
+			"search",
+			"Search",
+			"search",
+			"fragment",
+			"setStore",
+			"e.response.data",
+			"fetchDeskArticlesSaga",
+			"AddNewTag(",
+			"AddNewTag",
 			"setFieldValue",
-			"articleSchema",
-			"triedToSubmit",
-			"FormField",
-			"error",
-			"console.log",
-			"error",
-			"Date",
-			"date",
-			"time",
-			"from \"moment",
-			"articleSchema",
-			"postArticle",
-			"suggestedtag",
-			"suggesttag",
-			"animation"
+			"noResults",
+			"NoResults",
+			"noResults",
+			"NoResults",
+			"noResults",
+			"sub",
+			"open",
+			"original",
+			"noArticles",
+			"originalLength",
+			"articleArray",
+			"NoResults",
+			"noResults"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -566,29 +617,61 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/sagas/stories.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3219,
+						"buffer_size": 422,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2298,
-								2298
+								9,
+								9
 							]
 						],
 						"settings":
 						{
-							"SL.96.region_keys":
+							"SL.88.region_keys":
+							[
+							],
+							"auto_name": "kymograph",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/pages/home/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 742,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								351,
+								351
+							]
+						],
+						"settings":
+						{
+							"SL.283.region_keys":
 							[
 							],
 							"git_gutter_is_enabled": true,
@@ -597,101 +680,38 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 324.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/components/SubmitArticle.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11374,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4743,
-								4743
-							]
-						],
-						"settings":
-						{
-							"SL.109.region_keys":
-							[
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4326.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"semi_transient": false,
+					"file": "src/sagas/auth.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 28,
+						"buffer_size": 895,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28,
-								28
+								467,
+								467
 							]
 						],
 						"settings":
 						{
-							"SL.77.region_keys":
+							"SL.363.region_keys":
 							[
 							],
-							"auto_name": "a",
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 38,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38,
-								38
-							]
-						],
-						"settings":
-						{
-							"SL.78.region_keys":
-							[
-							],
-							"auto_name": "on finishing month type, focus on next",
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -701,24 +721,218 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 267,
+						"buffer_size": 1241,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										122,
+										129
+									],
+									[
+										363,
+										370
+									],
+									[
+										631,
+										638
+									],
+									[
+										877,
+										884
+									],
+									[
+										1122,
+										1129
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								125,
+								125
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"git_gutter_is_enabled": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/auth.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								87,
-								87
+								1651,
+								1651
+							]
+						],
+						"settings":
+						{
+							"SL.365.region_keys":
+							[
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1181.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4072,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2198,
+								2177
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 42.0,
+						"translation.y": 1166.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": ".env.development",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "config/env.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								232,
+								232
+							]
+						],
+						"settings":
+						{
+							"SL.311.region_keys":
+							[
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
 							]
 						],
 						"settings":
 						{
 							"SL.108.region_keys":
+							[
+							],
+							"SL.68.region_keys":
 							[
 							],
 							"SL.83.region_keys":
@@ -732,7 +946,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								377,
+								377
+							]
+						],
+						"settings":
+						{
+							"SL.100.region_keys":
+							[
+							],
+							"auto_name": "",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -740,7 +986,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -793,7 +1039,7 @@
 	"project": "storion-fe.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -803,28 +1049,84 @@
 		"selected_items":
 		[
 			[
+				"packa",
+				"package.json"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
 				"package",
 				"package.json"
 			],
 			[
-				"tag",
-				"src/components/Tag.js"
+				"auth",
+				"src/auth.js"
 			],
 			[
-				".css",
-				"src/index.css"
+				"packag",
+				"package.json"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"pack",
+				"package.json"
 			],
 			[
 				"styles.js",
 				"src/styles.js"
 			],
 			[
-				"styles.j",
-				"src/styles.js"
+				"webpack.conf",
+				"node_modules/idtoken-verifier/webpack.config.js"
+			],
+			[
+				"pac",
+				"package.json"
+			],
+			[
+				"subm",
+				"src/components/SubmitArticle.js"
+			],
+			[
+				"build.js",
+				"scripts/build.js"
 			],
 			[
 				"articlebl",
 				"src/components/ArticleBlock.js"
+			],
+			[
+				"styles.j",
+				"src/styles.js"
+			],
+			[
+				"tag.js",
+				"src/components/Tag.js"
+			],
+			[
+				"tag",
+				"src/components/Tag.js"
+			],
+			[
+				"submit",
+				"src/components/SubmitArticle.js"
+			],
+			[
+				".notes",
+				"misc/misc.notes"
+			],
+			[
+				"utils.js",
+				"src/utils.js"
+			],
+			[
+				".css",
+				"src/index.css"
 			],
 			[
 				"desk/inde",
@@ -849,10 +1151,6 @@
 			[
 				"styles",
 				"node_modules/cssom/lib/StyleSheet.js"
-			],
-			[
-				".env",
-				".env"
 			],
 			[
 				"tag.",
@@ -881,10 +1179,6 @@
 			[
 				"sagas/stor",
 				"src/sagas/stories.js"
-			],
-			[
-				"packa",
-				"package.json"
 			],
 			[
 				"sagas/au",
@@ -919,10 +1213,6 @@
 				"src/auth.js"
 			],
 			[
-				"auth",
-				"src/auth.js"
-			],
-			[
 				"Routes.",
 				"src/pages/Routes.js"
 			],
@@ -943,10 +1233,6 @@
 				"public/index.html"
 			],
 			[
-				"pack",
-				"package.json"
-			],
-			[
 				"metam",
 				"misc/metamodes.notes"
 			],
@@ -965,10 +1251,6 @@
 			[
 				"miniga",
 				"misc/minigames.notes"
-			],
-			[
-				".git",
-				".gitignore"
 			],
 			[
 				"dood",
@@ -1091,7 +1373,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 121.0,
+	"side_bar_width": 223.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
