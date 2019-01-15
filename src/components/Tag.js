@@ -44,7 +44,7 @@ const TagBody = styled.div.attrs({
 `
 
 const TagText = styled.div`
-	color: hsl(${({ hue }) => hue}, 100%, 80%);
+	color: ${({ color }) => color};
 	display: flex;
 	justify-content: flex-end;
 	flex-grow: 1;
@@ -54,15 +54,16 @@ const TagText = styled.div`
 
 	font-size: 13px;
 
-	${({ hue, thickness }) =>
+	${({ color, thickness }) =>
 		`
-		margin-top: ${-thickness}px;
-		margin-left: ${-thickness / 2}px;
 		padding-left: ${5 + thickness / 2}px;
 		padding-right: ${15 - thickness / 2}px;
-		margin-right: ${-thickness / 2}px;
-		border: solid ${thickness}px hsl(${hue}, 100%, 80%);`} border-left: none;
-	${({ flush }) => flush && "border-right: none;"};
+		margin-top: ${-thickness}px;
+		margin-left: 0px;
+		margin-right: ${-thickness}px;
+		border: solid ${thickness}px ${color};
+		border-left: none;
+		`};
 `
 
 export default class Tag extends PureComponent {
@@ -72,7 +73,11 @@ export default class Tag extends PureComponent {
 
 	constructor(props) {
 		super(props)
-		this.hue = color.charToHue(this.props.children)
+		if (this.props.children === "No Tags") {
+			this.color = "hsl(0, 0%, 89%)"
+		} else {
+			this.color = `hsl(${color.charToHue(this.props.children)}, 100%, 80%)`
+		}
 	}
 
 	render() {
@@ -92,11 +97,15 @@ export default class Tag extends PureComponent {
 							10, ${thickness / 2}
 							`}
 						fill="none"
-						stroke={`hsl(${this.hue}, 100%, 80%)`}
+						stroke={this.color}
 						strokeWidth={thickness}
 					/>
 				</svg>
-				<TagText hue={this.hue} flush={this.props.flush} thickness={thickness}>
+				<TagText
+					color={this.color}
+					flush={this.props.flush}
+					thickness={thickness}
+				>
 					<Ellipsis>{this.props.children}</Ellipsis>
 				</TagText>
 			</TagBody>
@@ -107,8 +116,8 @@ export default class Tag extends PureComponent {
 const Letter = styled.div`
 	width: 20px;
 	height: 25px;
-	color: hsl(${({ hue }) => hue}, 100%, 80%);
-	border: solid 2px hsl(${({ hue }) => hue}, 100%, 80%);
+	color: ${({ color }) => color};
+	border: solid 2px ${({ color }) => color};
 	border-top: none;
 	border-bottom: none;
 	text-align: center;
@@ -127,26 +136,24 @@ const MiniTagBody = styled.div.attrs({
 export class MiniTag extends PureComponent {
 	constructor(props) {
 		super(props)
-		this.hue = color.charToHue(this.props.children)
+		this.color = `hsl(${color.charToHue(this.props.children)}, 100%, 80%)`
 	}
 
 	render() {
 		return (
 			<MiniTagBody title={this.props.children}>
-				<Letter hue={this.hue}>{this.props.children[0]}</Letter>
+				<Letter color={this.color}>{this.props.children[0]}</Letter>
 				<svg>
 					<polyline
-						points={
-							`
+						points={`
 							${lineThickness / 2}, 0
-							${lineThickness / 2}, ${height/2}
+							${lineThickness / 2}, ${height / 2}
 							10, ${0}
-							${20 - lineThickness / 2}, ${height/2}
+							${20 - lineThickness / 2}, ${height / 2}
 							${20 - lineThickness / 2}, 0
-							`
-						}
+							`}
 						fill="none"
-						stroke={`hsl(${this.hue}, 100%, 80%)`}
+						stroke={this.color}
 						strokeWidth={lineThickness}
 					/>
 				</svg>

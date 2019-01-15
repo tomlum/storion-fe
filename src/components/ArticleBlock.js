@@ -102,7 +102,6 @@ export default function ArticleBlock({ article, onEdit }) {
 				<Anchor href={article.link}>
 					<Headline>
 						{article.headline}
-						{article.headline}
 					</Headline>
 				</Anchor>
 				<TagSpace>

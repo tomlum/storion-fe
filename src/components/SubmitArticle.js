@@ -7,6 +7,7 @@ import { Formik, Form, Field } from "formik"
 import { postArticle } from "sagas/stories"
 import { feedSpatch, connect } from "sagas/utils"
 import Tag from "components/Tag"
+import { Space } from "components/Space"
 import { colors } from "styles"
 import { array, string } from "utils"
 
@@ -29,6 +30,11 @@ const Body = styled.div`
 	background-color: ${colors.lightPurple};
 	width: 100%;
 `
+const TopRow = styled.div`
+	display: flex;
+	border-bottom: solid 5px ${colors.rose};
+	background-color: ${colors.rose};
+`
 const FormBody = styled.div`
 	box-sizing: content-box;
 	padding: 8px;
@@ -36,16 +42,28 @@ const FormBody = styled.div`
 	padding-bottom: 20px;
 	box-shadow: inset 0px 0px 13px 4px #222;
 `
-const FormButton = styled.div.attrs({
+const Search = styled.input`
+	flex: 1;
+	border: solid 2px ${colors.purple};
+	border-radius: 3px;
+	background-color: white;
+	box-sizing: border-box;
+	height: 35px;
+	font-size: 15px;
+	padding: 5px 10px;
+`
+const ShowFormButton = styled.div.attrs({
 	className: "clickable"
 })`
+	width: 150px;
+	box-sizing: border-box;
 	color: ${colors.mintGreen};
-	border-bottom: solid 2px ${colors.rose};
-	padding: 10px;
+	border-radius: 3px;
+	padding: 5px;
 	display: flex;
 	justify-content: center;
-	margin-top: -2px;
-	background-color: ${colors.lighterPurple};
+	height: 35px;
+	background-color: ${colors.lightPurple};
 `
 const FormRow = styled.div`
 	display: flex;
@@ -53,9 +71,6 @@ const FormRow = styled.div`
 	padding-left: 10px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-`
-const SubmitRow = styled.div`
-	text-align: center;
 `
 const FormFields = styled.div`
 	max-width: 500px;
@@ -112,7 +127,7 @@ const SuggestTagText = styled.p`
 const TagList = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	margin-left: 90px;
+	margin-left: 95px;
 `
 
 const OptionalDivider = styled.div`
@@ -152,16 +167,6 @@ const articleSchema = Yup.object().shape({
 			} else if (!this.parent.month || !this.parent.day || !this.parent.year) {
 				return false
 			} else {
-				console.log(
-					this.parent.year,
-					this.parent.month,
-					this.parent.day,
-					moment(
-						formatDate(this.parent.year, this.parent.month, this.parent.day),
-						"YYYY-MM-DD",
-						true
-					)
-				)
 				return moment(
 					formatDate(this.parent.year, this.parent.month, this.parent.day),
 					"YYYY-MM-DD",
@@ -180,12 +185,17 @@ const SubmitButtonRow = styled.div`
 	}
 `
 
-const Space = styled.div`
-	width: ${({ w }) => w}px;
-`
-
 class CheckEditedArticle extends Component {
 	componentDidUpdate(prevProps) {
+		if (!prevProps.open && this.props.open) {
+			this.props.setValues({
+				link: "",
+				headline: "",
+				day: "",
+				month: "",
+				year: ""
+			})
+		}
 		if (
 			this.props.article &&
 			((!prevProps.article && this.props.article) ||
@@ -196,15 +206,18 @@ class CheckEditedArticle extends Component {
 				...this.props.values,
 				link: this.props.article.link,
 				headline: this.props.article.headline,
-				day: this.props.article.time.isValid()
-					? this.props.article.time.format("DD")
-					: "",
-				month: this.props.article.time.isValid()
-					? this.props.article.time.format("MM")
-					: "",
-				year: this.props.article.time.isValid()
-					? this.props.article.time.format("YYYY")
-					: ""
+				day:
+					this.props.article.time.isValid && this.props.article.time.isValid()
+						? this.props.article.time.format("DD")
+						: "",
+				month:
+					this.props.article.time.isValid && this.props.article.time.isValid()
+						? this.props.article.time.format("MM")
+						: "",
+				year:
+					this.props.article.time.isValid && this.props.article.time.isValid()
+						? this.props.article.time.format("YYYY")
+						: ""
 			})
 			this.props.linkRef.current.focus()
 		}
@@ -238,12 +251,33 @@ class SubmitArticle extends Component {
 		}
 	}
 
+	// add error for including `
+	AddNewTag = (values, setFieldValue) => {
+		if (
+			!this.state.newTagList.includes(values.newTag) &&
+			values.newTag.length > 0
+		) {
+			setFieldValue("newTag", "")
+			this.setState({
+				newTagList: [...this.state.newTagList, values.newTag]
+			})
+		}
+	}
+
 	render() {
 		return (
 			<Body>
-				<FormButton onClick={this.props.onClick}>
-					{this.props.editedArticle ? "Edit Article" : "+ New Article"}
-				</FormButton>
+				<TopRow>
+					<ShowFormButton onClick={this.props.onClick}>
+						{this.props.editedArticle ? "Edit Article" : "+ New Article"}
+					</ShowFormButton>
+					<Space w="8" />
+					<Search
+						placeholder={"Search"}
+						value={this.props.searchString}
+						onChange={this.props.searchType}
+					/>
+				</TopRow>
 				<AnimateHeight
 					duration={300}
 					easing="ease-in-out"
@@ -251,6 +285,8 @@ class SubmitArticle extends Component {
 				>
 					<FormBody>
 						<Formik
+							validateOnChange={false}
+							validateOnBlur={false}
 							initialValues={{
 								link: "",
 								headline: "",
@@ -282,6 +318,7 @@ class SubmitArticle extends Component {
 									<FormFields>
 										<FormRow>
 											<CheckEditedArticle
+												open={this.props.open}
 												article={this.props.editedArticle}
 												values={values}
 												setValues={setValues}
@@ -292,7 +329,7 @@ class SubmitArticle extends Component {
 												innerRef={this.ref.link}
 												type="text"
 												name="link"
-												error={this.state.triedToSubmit && errors.link}
+												error={errors.link}
 												nextref={this.ref.headline}
 											/>
 										</FormRow>
@@ -313,7 +350,7 @@ class SubmitArticle extends Component {
 												style={{
 													height: this.state.newHeadlineHeight - 10 + "px"
 												}}
-												error={this.state.triedToSubmit && errors.headline}
+												error={errors.headline}
 												nextref={this.ref.month}
 											/>
 										</FormRow>
@@ -339,7 +376,7 @@ class SubmitArticle extends Component {
 													}}
 													nextref={this.ref.day}
 													style={{ textAlign: "center" }}
-													error={this.state.triedToSubmit && errors.month}
+													error={errors.month}
 												/>
 												{` / `}
 												<FormField
@@ -360,7 +397,7 @@ class SubmitArticle extends Component {
 													}}
 													nextref={this.ref.year}
 													style={{ textAlign: "center" }}
-													error={this.state.triedToSubmit && errors.day}
+													error={errors.day}
 												/>
 												{` / `}
 												<FormField
@@ -375,7 +412,7 @@ class SubmitArticle extends Component {
 													}}
 													nextref={this.ref.newTag}
 													style={{ textAlign: "center" }}
-													error={this.state.triedToSubmit && errors.year}
+													error={errors.year}
 												/>
 											</DateFields>
 											<button
@@ -394,10 +431,9 @@ class SubmitArticle extends Component {
 												Today
 											</button>
 										</FormRow>
-										{this.state.triedToSubmit &&
-											errors.validDate && (
-												<ErrorText>{errors.validDate}</ErrorText>
-											)}
+										{errors.validDate && (
+											<ErrorText>{errors.validDate}</ErrorText>
+										)}
 										<FormRow>
 											<FieldLabel>Tags</FieldLabel>
 											<FormField
@@ -409,17 +445,7 @@ class SubmitArticle extends Component {
 												onKeyPress={e => {
 													if (e.key === "Enter") {
 														e.preventDefault()
-														if (
-															!this.state.newTagList.includes(values.newTag) &&
-															values.newTag.length > 0
-														) {
-															this.setState({
-																newTagList: [
-																	...this.state.newTagList,
-																	values.newTag
-																]
-															})
-														}
+														this.AddNewTag(values, setFieldValue)
 													}
 												}}
 											/>
@@ -429,20 +455,7 @@ class SubmitArticle extends Component {
 													<div
 														className="clickable"
 														onClick={() => {
-															if (
-																!this.state.newTagList.includes(
-																	values.newTag
-																) &&
-																values.newTag.length > 0
-															) {
-																this.setState({
-																	newTagList: [
-																		...this.state.newTagList,
-																		values.newTag
-																	]
-																})
-															}
-															setFieldValue("newTag", "")
+															this.AddNewTag(values, setFieldValue)
 														}}
 													>
 														{PlusIcon}
@@ -483,14 +496,15 @@ class SubmitArticle extends Component {
 										)}
 
 										<SubmitButtonRow>
-											{this.props.editedArticle && <button>Cancel Edit</button>}
-											<button
-												type="submit"
-												onClick={() => {
-													this.setState({ triedToSubmit: true })
-												}}
-											>
-												{this.props.editedArticle ? "Save Edit" : "Submit"}
+											{this.props.editedArticle && (
+												<button type="button" onClick={this.props.onClick}>
+													Cancel Edit
+												</button>
+											)}
+											<button type="submit">
+												{this.props.editedArticle
+													? "Save Edit"
+													: "Save To Desk"}
 											</button>
 										</SubmitButtonRow>
 									</FormFields>
@@ -504,9 +518,14 @@ class SubmitArticle extends Component {
 	}
 }
 
-const actionsToProps = feedSpatch({
-	postArticle
-})
+const actionsToProps = feedSpatch(
+	{
+		postArticle
+	},
+	{
+		setStore: v => ({ desk: v })
+	}
+)
 
 export default connect(
 	null,

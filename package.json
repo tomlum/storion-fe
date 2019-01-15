@@ -48,6 +48,7 @@
     "react-app-polyfill": "^0.1.3",
     "react-dev-utils": "^6.0.5",
     "react-dom": "^16.6.0",
+    "react-outside-click-handler": "^1.2.2",
     "react-redux": "^5.1.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -67,9 +68,13 @@
     "yup": "^0.26.6"
   },
   "scripts": {
-    "dev": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "dev": "NODE_ENV_FILE=development node scripts/start.js",
+    "build:staging": "NODE_ENV_FILE=staging REACT_APP_DEBUG_API=false node scripts/build.js",
+    "build:production": "NODE_ENV_FILE=production REACT_APP_DEBUG_API=false node scripts/build.js",
+    "test": "node scripts/test.js",
+    "stats": "node scripts/stats.js",
+    "deploy:staging": "yarn build:staging && aws s3 sync build/ s3://storion-staging",
+    "deploy:production": "yarn build:production && aws s3 sync build/ s3://storion"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -130,6 +135,8 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0"
+    "babel-plugin-styled-components": "^1.8.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2"
   }
 }
