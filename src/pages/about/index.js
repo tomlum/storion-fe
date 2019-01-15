@@ -1,9 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import styled from "styled-components"
-// import StoryBlock from "../../components/StoryBlock"
-// import { fetchStories } from "../../sagas/stories"
-// import { feedSpatch } from "../../sagas/utils"
+import auth0Client from "auth"
 import { Space } from "components/Space"
 import { colors } from "styles"
 
@@ -37,6 +35,11 @@ const AboutBody = styled.div`
   }
 
   a {
+    color: ${colors.pink};
+    text-decoration: underline;
+  }
+
+  .login {
     color: ${colors.pink};
     text-decoration: underline;
   }
@@ -187,7 +190,11 @@ class About extends Component {
           </p>
         </DevBlock>
         <p>
-          {`And that's the plan! If you have any questions, comments, updates, you
+          {`And that's the plan!  If you're curious you can`}{" "}
+          <span onClick={() => auth0Client.signIn()} className="login clickable">
+            log in
+          </span>{" "}
+          {`right now and give what's in development a shot!  If you have any questions, comments, updates, you
           can `}
           <a href="mailto:TomLumPerson@gmail.com" className="clickable">
             email me
