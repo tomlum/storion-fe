@@ -59,7 +59,7 @@ const TagText = styled.div`
 		padding-left: ${5 + thickness / 2}px;
 		padding-right: ${15 - thickness / 2}px;
 		margin-top: ${-thickness}px;
-		margin-left: 0px;
+		margin-left: -1px;
 		margin-right: ${-thickness}px;
 		border: solid ${thickness}px ${color};
 		border-left: none;

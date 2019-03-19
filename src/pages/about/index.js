@@ -144,17 +144,9 @@ class About extends Component {
           So if I care a lot about the U.S. policies on climate change, I can
           follow a story my friend made. As they find more articles, they can
           add to the story, and I'll get updates. And if I want to explain to
-          someone the history of the U.S. policies on climate change, I can
+          someone the full story of the U.S. policies on climate change, I can
           share my sources all in one place.
         </p>
-        <p>
-          So if I care a lot about the U.S. policies on climate change, I can
-          follow a story my friend made. As they find more articles, they can
-          add to the story, and I'll get updates. And if I want to explain to
-          someone the history of the U.S. policies on climate change, I can
-          share my sources all in one place.
-        </p>
-
         <Center>
           <h1>
             <u>Development Progress</u>
