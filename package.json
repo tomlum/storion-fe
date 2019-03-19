@@ -1,4 +1,13 @@
 {
+  "scripts": {
+    "dev": "NODE_ENV_FILE=development node scripts/start.js",
+    "build:staging": "NODE_ENV_FILE=staging REACT_APP_DEBUG_API=false node scripts/build.js",
+    "build:production": "NODE_ENV_FILE=production REACT_APP_DEBUG_API=false node scripts/build.js",
+    "test": "node scripts/test.js",
+    "stats": "node scripts/stats.js",
+    "deploy:staging": "yarn build:staging && aws s3 sync build/ s3://storion-staging",
+    "deploy:production": "yarn build:production && aws s3 sync build/ s3://storion"
+  },
   "name": "storion-fe",
   "version": "0.1.0",
   "private": true,
@@ -66,15 +75,6 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.2",
     "yup": "^0.26.6"
-  },
-  "scripts": {
-    "dev": "NODE_ENV_FILE=development node scripts/start.js",
-    "build:staging": "NODE_ENV_FILE=staging REACT_APP_DEBUG_API=false node scripts/build.js",
-    "build:production": "NODE_ENV_FILE=production REACT_APP_DEBUG_API=false node scripts/build.js",
-    "test": "node scripts/test.js",
-    "stats": "node scripts/stats.js",
-    "deploy:staging": "yarn build:staging && aws s3 sync build/ s3://storion-staging",
-    "deploy:production": "yarn build:production && aws s3 sync build/ s3://storion"
   },
   "eslintConfig": {
     "extends": "react-app"
