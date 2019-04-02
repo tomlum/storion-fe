@@ -2,7 +2,7 @@
 is an app that I hope will change the way we read and interact with news.  You can read more at https://storion.org/about
 
 ## Release: (Alpha 0.0.1)
-Storion is presently in Alpha, so while it is functional, please understand I'm activley working on it, so there will be some 
+Storion is presently in Alpha, so while it is functional, please understand I'm activley working on it, so there may be the occasional hiccup.
 
 ## Development Progress
 - [x] **Infrastructure**
