@@ -53,6 +53,7 @@ input textarea{
 button{
 	font-family: Roboto;
 	height: 23px;
+	border: none;
 	background-color: #ded5e2;
 	color: #1c163b;
 	border-radius: 8px;
