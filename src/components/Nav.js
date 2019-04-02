@@ -29,7 +29,7 @@ const Logo = styled.img`
 	height: 35px;
 	padding: 10px;
 	padding-bottom: 0px;
-	margin-right: 20px;
+	margin-right: 0px;
 `
 const LeftSection = styled.div`
 	flex: 1;
@@ -181,7 +181,7 @@ class Nav extends Component {
 										About
 									</Link>
 								</TopTab>
-								<Space w={15}/>
+								<Space w={10}/>
 								<TopTab>{Contact}</TopTab>
 							</LeftSection>
 							<RightSection>
