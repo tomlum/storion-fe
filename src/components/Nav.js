@@ -38,6 +38,9 @@ const LeftSection = styled.div`
 const RightSection = styled.div`
 	flex: 1;
 	text-align: right;
+	button {
+		margin-top: 16px;
+	}
 `
 const NavButton = styled.div`
 	display: flex;
